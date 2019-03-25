@@ -54,8 +54,8 @@
                     <asp:LoginView runat="server" ViewStateMode="Disabled">
                         <AnonymousTemplate>
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a runat="server" href="~/Account/Register">Register</a></li>
-                                <li><a runat="server" href="~/Account/Login">Log in</a></li>
+                                <li><a runat="server" href="~/Register">Register</a></li>
+                                <li><a runat="server" href="~/Login">Log in</a></li>
                             </ul>
                         </AnonymousTemplate>
                         <LoggedInTemplate>
@@ -70,12 +70,17 @@
                 </div>
             </div>
         </div>
+
+        <div class="body-content">
+            <%-- Banner --%>
+            <asp:ContentPlaceHolder runat="server" ID="BannerContent"></asp:ContentPlaceHolder>
+        </div>
         <div class="container body-content">
-            <asp:ContentPlaceHolder ID="MainContent" runat="server">
-            </asp:ContentPlaceHolder>
+            <%-- Body --%>
+            <asp:ContentPlaceHolder ID="MainContent" runat="server"></asp:ContentPlaceHolder>
             <hr />
             <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
+                <p class="footer">&copy; <%: DateTime.Now.Year %> - Scit Major Project Portal</p>
             </footer>
         </div>
     </form>
