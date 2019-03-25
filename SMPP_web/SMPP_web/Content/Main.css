@@ -1,0 +1,15 @@
+﻿/*
+    Custom CSS to override Bootstrap
+*/
+
+body {
+}
+
+.home-banner {
+    width: 100%;
+    height: 500px;
+}
+
+.footer {
+    text-align: center;
+}
