@@ -161,6 +161,8 @@
   <ItemGroup>
     <Content Include="Account\Forgot.aspx" />
     <Content Include="Account\Lockout.aspx" />
+    <Content Include="Account\ManagePassword.aspx" />
+    <Content Include="Images\SMPP_logo.png" />
     <Content Include="Login.aspx" />
     <Content Include="Account\Manage.aspx" />
     <Content Include="Register.aspx" />
@@ -235,6 +237,13 @@
     </Compile>
     <Compile Include="Account\Lockout.aspx.designer.cs">
       <DependentUpon>Lockout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\ManagePassword.aspx.cs">
+      <DependentUpon>ManagePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\ManagePassword.aspx.designer.cs">
+      <DependentUpon>ManagePassword.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>

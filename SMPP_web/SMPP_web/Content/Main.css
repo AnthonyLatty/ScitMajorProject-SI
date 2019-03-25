@@ -10,6 +10,11 @@ body {
     height: 500px;
 }
 
+.logo {
+    height: 40px;
+    margin-top: -10px;
+}
+
 .footer {
     text-align: center;
 }
