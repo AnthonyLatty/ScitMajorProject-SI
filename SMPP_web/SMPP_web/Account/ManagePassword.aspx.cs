@@ -9,7 +9,7 @@ using Microsoft.AspNet.Identity.Owin;
 
 namespace SMPP_web.Account
 {
-    public partial class ManagePassword : System.Web.UI.Page
+    public partial class ManagePassword : Page
     {
         protected string SuccessMessage
         {
@@ -59,7 +59,7 @@ namespace SMPP_web.Account
                 if (result.Succeeded)
                 {
                     var user = manager.FindById(User.Identity.GetUserId());
-                    signInManager.SignIn( user, isPersistent: false, rememberBrowser: false);
+                    signInManager.SignIn(user, isPersistent: false, rememberBrowser: false);
                     Response.Redirect("~/Account/Manage?m=ChangePwdSuccess");
                 }
                 else
