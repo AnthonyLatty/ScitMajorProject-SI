@@ -1,9 +1,5 @@
 ﻿<%@ Page Title="Manage Account" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Manage.aspx.cs" Inherits="SMPP_web.Account.Manage" %>
 
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
 <asp:Content ContentPlaceHolderID="MainContent" runat="server">
     <h2><%: Title %>.</h2>
 
@@ -21,11 +17,8 @@
                 <dl class="dl-horizontal">
                     <dt>Password:</dt>
                     <dd>
-<<<<<<< Updated upstream
-                        <asp:HyperLink NavigateUrl="/Account/ManagePassword" CssClass="btn btn-warning" Text="[Change Password]" Visible="false" ID="ChangePassword" runat="server" />
-=======
-                        <asp:HyperLink NavigateUrl="/Account/ManagePassword" Text="Change Password" Visible="false" CssClass="btn btn-warning" ID="ChangePassword" runat="server" />
->>>>>>> Stashed changes
+                        <asp:HyperLink NavigateUrl="/Account/ManagePassword" CssClass="btn btn-warning" Text="Change Password" Visible="false" ID="ChangePassword" runat="server" />
+
                         <asp:HyperLink NavigateUrl="/Account/ManagePassword" Text="[Create]" Visible="false" ID="CreatePassword" runat="server" />
                     </dd>
                 </dl>

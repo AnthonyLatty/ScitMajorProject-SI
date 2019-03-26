@@ -159,6 +159,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Account\Coordinator\ProjectGroups.aspx" />
     <Content Include="Account\Forgot.aspx" />
     <Content Include="Account\Lockout.aspx" />
     <Content Include="Account\ManagePassword.aspx" />
@@ -224,6 +225,13 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Account\Coordinator\ProjectGroups.aspx.cs">
+      <DependentUpon>ProjectGroups.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Coordinator\ProjectGroups.aspx.designer.cs">
+      <DependentUpon>ProjectGroups.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Account\Forgot.aspx.cs">
       <DependentUpon>Forgot.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -320,6 +328,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Account\Lecturer\" />
+    <Folder Include="Account\Librarian\" />
+    <Folder Include="Account\Student\" />
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
