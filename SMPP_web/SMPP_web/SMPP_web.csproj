@@ -267,6 +267,24 @@
     <Compile Include="Account\Manage.aspx.designer.cs">
       <DependentUpon>Manage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903262241300_InitialCreate.cs" />
+    <Compile Include="Migrations\201903262241300_InitialCreate.Designer.cs">
+      <DependentUpon>201903262241300_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904131231296_AddDatabaseSchema.cs" />
+    <Compile Include="Migrations\201904131231296_AddDatabaseSchema.Designer.cs">
+      <DependentUpon>201904131231296_AddDatabaseSchema.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Coordinator.cs" />
+    <Compile Include="Models\Document.cs" />
+    <Compile Include="Models\Faculty.cs" />
+    <Compile Include="Models\Lecturer.cs" />
+    <Compile Include="Models\Libarian.cs" />
+    <Compile Include="Models\Memo.cs" />
+    <Compile Include="Models\Project.cs" />
+    <Compile Include="Models\SMPPContext.cs" />
+    <Compile Include="Models\Student.cs" />
     <Compile Include="Register.aspx.cs">
       <DependentUpon>Register.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -343,6 +361,14 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201903262241300_InitialCreate.resx">
+      <DependentUpon>201903262241300_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904131231296_AddDatabaseSchema.resx">
+      <DependentUpon>201904131231296_AddDatabaseSchema.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
