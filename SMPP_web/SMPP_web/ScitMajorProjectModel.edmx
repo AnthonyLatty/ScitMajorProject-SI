@@ -1,0 +1,563 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ScitMajorProjectModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="ScitMajorProjectModelStoreContainer">
+    <EntitySet Name="Students" EntityType="ScitMajorProjectModel.Store.Students" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Lecturers" EntityType="ScitMajorProjectModel.Store.Lecturers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Libarians" EntityType="ScitMajorProjectModel.Store.Libarians" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Documents" EntityType="ScitMajorProjectModel.Store.Documents" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Memos" EntityType="ScitMajorProjectModel.Store.Memos" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Coordinators" EntityType="ScitMajorProjectModel.Store.Coordinators" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Projects" EntityType="ScitMajorProjectModel.Store.Projects" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Syllabus" EntityType="ScitMajorProjectModel.Store.Syllabus" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MarkSchemes" EntityType="ScitMajorProjectModel.Store.MarkSchemes" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="LecturerMemo" Association="ScitMajorProjectModel.Store.LecturerMemo">
+      <End Role="Lecturer" EntitySet="Lecturers" />
+      <End Role="Memo" EntitySet="Memos" />
+    </AssociationSet>
+    <AssociationSet Name="LecturerProject" Association="ScitMajorProjectModel.Store.LecturerProject">
+      <End Role="Lecturer" EntitySet="Lecturers" />
+      <End Role="Project" EntitySet="Projects" />
+    </AssociationSet>
+    <AssociationSet Name="LibarianDocument" Association="ScitMajorProjectModel.Store.LibarianDocument">
+      <End Role="Libarian" EntitySet="Libarians" />
+      <End Role="Document" EntitySet="Documents" />
+    </AssociationSet>
+    <AssociationSet Name="LecturerStudent" Association="ScitMajorProjectModel.Store.LecturerStudent">
+      <End Role="Lecturer" EntitySet="Lecturers" />
+      <End Role="Student" EntitySet="Students" />
+    </AssociationSet>
+    <AssociationSet Name="StudentProject" Association="ScitMajorProjectModel.Store.StudentProject">
+      <End Role="Student" EntitySet="Students" />
+      <End Role="Project" EntitySet="Projects" />
+    </AssociationSet>
+    <AssociationSet Name="CoordinatorSyllabus" Association="ScitMajorProjectModel.Store.CoordinatorSyllabus">
+      <End Role="Coordinator" EntitySet="Coordinators" />
+      <End Role="Syllabus" EntitySet="Syllabus" />
+    </AssociationSet>
+    <AssociationSet Name="SyllabusMarkScheme" Association="ScitMajorProjectModel.Store.SyllabusMarkScheme">
+      <End Role="Syllabus" EntitySet="Syllabus" />
+      <End Role="MarkScheme" EntitySet="MarkSchemes" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Students">
+    <Key>
+      <PropertyRef Name="StudentId" />
+    </Key>
+    <Property Name="StudentId" Type="nvarchar(max)" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="LastName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Address" Type="nvarchar" Nullable="false" MaxLength="150" />
+    <Property Name="Faculty" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="IDNumber" Type="nvarchar" Nullable="false" MaxLength="7" />
+    <Property Name="LecturerLecturerId" Type="int" Nullable="false" />
+    <Property Name="Project_ProjectId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Lecturers">
+    <Key>
+      <PropertyRef Name="LecturerId" />
+    </Key>
+    <Property Name="LecturerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="LastName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Faculty" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="OfficeExtension" Type="nvarchar" Nullable="false" MaxLength="5" />
+  </EntityType>
+  <EntityType Name="Libarians">
+    <Key>
+      <PropertyRef Name="LibarianId" />
+    </Key>
+    <Property Name="LibarianId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="LastName" Type="nvarchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Documents">
+    <Key>
+      <PropertyRef Name="DocumentId" />
+    </Key>
+    <Property Name="DocumentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="FilePath" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LibarianLibarianId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Memos">
+    <Key>
+      <PropertyRef Name="MemoId" />
+    </Key>
+    <Property Name="MemoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="150" />
+    <Property Name="LecturerLecturerId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Coordinators">
+    <Key>
+      <PropertyRef Name="CoordinatorId" />
+    </Key>
+    <Property Name="CoordinatorId" Type="nvarchar(max)" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="LastName" Type="nvarchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Projects">
+    <Key>
+      <PropertyRef Name="ProjectId" />
+    </Key>
+    <Property Name="ProjectId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="Topic" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="AcademicYear" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="FilePath" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LecturerLecturerId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Syllabus">
+    <Key>
+      <PropertyRef Name="SyllabusId" />
+    </Key>
+    <Property Name="SyllabusId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="FilePath" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CoordinatorCoordinatorId" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="MarkScheme_MarkSchemeId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MarkSchemes">
+    <Key>
+      <PropertyRef Name="MarkSchemeId" />
+    </Key>
+    <Property Name="MarkSchemeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FilePath" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <Association Name="LecturerMemo">
+    <End Role="Lecturer" Type="ScitMajorProjectModel.Store.Lecturers" Multiplicity="1" />
+    <End Role="Memo" Type="ScitMajorProjectModel.Store.Memos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Lecturer">
+        <PropertyRef Name="LecturerId" />
+      </Principal>
+      <Dependent Role="Memo">
+        <PropertyRef Name="LecturerLecturerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="LecturerProject">
+    <End Role="Lecturer" Type="ScitMajorProjectModel.Store.Lecturers" Multiplicity="1" />
+    <End Role="Project" Type="ScitMajorProjectModel.Store.Projects" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Lecturer">
+        <PropertyRef Name="LecturerId" />
+      </Principal>
+      <Dependent Role="Project">
+        <PropertyRef Name="LecturerLecturerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="LibarianDocument">
+    <End Role="Libarian" Type="ScitMajorProjectModel.Store.Libarians" Multiplicity="1" />
+    <End Role="Document" Type="ScitMajorProjectModel.Store.Documents" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Libarian">
+        <PropertyRef Name="LibarianId" />
+      </Principal>
+      <Dependent Role="Document">
+        <PropertyRef Name="LibarianLibarianId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="LecturerStudent">
+    <End Role="Lecturer" Type="ScitMajorProjectModel.Store.Lecturers" Multiplicity="1" />
+    <End Role="Student" Type="ScitMajorProjectModel.Store.Students" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Lecturer">
+        <PropertyRef Name="LecturerId" />
+      </Principal>
+      <Dependent Role="Student">
+        <PropertyRef Name="LecturerLecturerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="StudentProject">
+    <End Role="Student" Type="ScitMajorProjectModel.Store.Students" Multiplicity="*" />
+    <End Role="Project" Type="ScitMajorProjectModel.Store.Projects" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Project">
+        <PropertyRef Name="ProjectId" />
+      </Principal>
+      <Dependent Role="Student">
+        <PropertyRef Name="Project_ProjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CoordinatorSyllabus">
+    <End Role="Coordinator" Type="ScitMajorProjectModel.Store.Coordinators" Multiplicity="1" />
+    <End Role="Syllabus" Type="ScitMajorProjectModel.Store.Syllabus" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Coordinator">
+        <PropertyRef Name="CoordinatorId" />
+      </Principal>
+      <Dependent Role="Syllabus">
+        <PropertyRef Name="CoordinatorCoordinatorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SyllabusMarkScheme">
+    <End Role="Syllabus" Type="ScitMajorProjectModel.Store.Syllabus" Multiplicity="*" />
+    <End Role="MarkScheme" Type="ScitMajorProjectModel.Store.MarkSchemes" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="MarkScheme">
+        <PropertyRef Name="MarkSchemeId" />
+      </Principal>
+      <Dependent Role="Syllabus">
+        <PropertyRef Name="MarkScheme_MarkSchemeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="ScitMajorProjectModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="ScitMajorProjectModelContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Students" EntityType="ScitMajorProjectModel.Student" />
+          <EntitySet Name="Lecturers" EntityType="ScitMajorProjectModel.Lecturer" />
+          <EntitySet Name="Libarians" EntityType="ScitMajorProjectModel.Libarian" />
+          <EntitySet Name="Documents" EntityType="ScitMajorProjectModel.Document" />
+          <EntitySet Name="Memos" EntityType="ScitMajorProjectModel.Memo" />
+          <EntitySet Name="Coordinators" EntityType="ScitMajorProjectModel.Coordinator" />
+          <EntitySet Name="Projects" EntityType="ScitMajorProjectModel.Project" />
+          <AssociationSet Name="LecturerMemo" Association="ScitMajorProjectModel.LecturerMemo">
+            <End Role="Lecturer" EntitySet="Lecturers" />
+            <End Role="Memo" EntitySet="Memos" />
+          </AssociationSet>
+          <AssociationSet Name="LecturerProject" Association="ScitMajorProjectModel.LecturerProject">
+            <End Role="Lecturer" EntitySet="Lecturers" />
+            <End Role="Project" EntitySet="Projects" />
+          </AssociationSet>
+          <AssociationSet Name="LibarianDocument" Association="ScitMajorProjectModel.LibarianDocument">
+            <End Role="Libarian" EntitySet="Libarians" />
+            <End Role="Document" EntitySet="Documents" />
+          </AssociationSet>
+          <AssociationSet Name="LecturerStudent" Association="ScitMajorProjectModel.LecturerStudent">
+            <End Role="Lecturer" EntitySet="Lecturers" />
+            <End Role="Student" EntitySet="Students" />
+          </AssociationSet>
+          <AssociationSet Name="StudentProject" Association="ScitMajorProjectModel.StudentProject">
+            <End Role="Student" EntitySet="Students" />
+            <End Role="Project" EntitySet="Projects" />
+          </AssociationSet>
+          <EntitySet Name="Syllabus" EntityType="ScitMajorProjectModel.Syllabus" />
+          <EntitySet Name="MarkSchemes" EntityType="ScitMajorProjectModel.MarkScheme" />
+          <AssociationSet Name="CoordinatorSyllabus" Association="ScitMajorProjectModel.CoordinatorSyllabus">
+            <End Role="Coordinator" EntitySet="Coordinators" />
+            <End Role="Syllabus" EntitySet="Syllabus" />
+          </AssociationSet>
+          <AssociationSet Name="SyllabusMarkScheme" Association="ScitMajorProjectModel.SyllabusMarkScheme">
+            <End Role="Syllabus" EntitySet="Syllabus" />
+            <End Role="MarkScheme" EntitySet="MarkSchemes" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="StudentId" />
+          </Key>
+          <Property Name="StudentId" Type="String" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="150" />
+          <Property Name="Faculty" Type="String" Nullable="false" MaxLength="50" />
+          <Property Name="IDNumber" Type="String" Nullable="false" MaxLength="7" />
+          <NavigationProperty Name="Lecturer" Relationship="ScitMajorProjectModel.LecturerStudent" FromRole="Student" ToRole="Lecturer" />
+          <Property Name="LecturerLecturerId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Project" Relationship="ScitMajorProjectModel.StudentProject" FromRole="Student" ToRole="Project" />
+        </EntityType>
+        <EntityType Name="Lecturer">
+          <Key>
+            <PropertyRef Name="LecturerId" />
+          </Key>
+          <Property Name="LecturerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" />
+          <Property Name="Faculty" Type="String" Nullable="false" MaxLength="20" />
+          <Property Name="OfficeExtension" Type="String" Nullable="false" MaxLength="5" />
+          <NavigationProperty Name="Memos" Relationship="ScitMajorProjectModel.LecturerMemo" FromRole="Lecturer" ToRole="Memo" />
+          <NavigationProperty Name="Projects" Relationship="ScitMajorProjectModel.LecturerProject" FromRole="Lecturer" ToRole="Project" />
+          <NavigationProperty Name="Students" Relationship="ScitMajorProjectModel.LecturerStudent" FromRole="Lecturer" ToRole="Student" />
+        </EntityType>
+        <EntityType Name="Libarian">
+          <Key>
+            <PropertyRef Name="LibarianId" />
+          </Key>
+          <Property Name="LibarianId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" />
+          <NavigationProperty Name="Documents" Relationship="ScitMajorProjectModel.LibarianDocument" FromRole="Libarian" ToRole="Document" />
+        </EntityType>
+        <EntityType Name="Document">
+          <Key>
+            <PropertyRef Name="DocumentId" />
+          </Key>
+          <Property Name="DocumentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="20" />
+          <Property Name="Date" Type="DateTime" Nullable="false" />
+          <Property Name="FilePath" Type="String" Nullable="false" />
+          <NavigationProperty Name="Libarian" Relationship="ScitMajorProjectModel.LibarianDocument" FromRole="Document" ToRole="Libarian" />
+          <Property Name="LibarianLibarianId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Memo">
+          <Key>
+            <PropertyRef Name="MemoId" />
+          </Key>
+          <Property Name="MemoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Date" Type="DateTime" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="150" />
+          <NavigationProperty Name="Lecturer" Relationship="ScitMajorProjectModel.LecturerMemo" FromRole="Memo" ToRole="Lecturer" />
+          <Property Name="LecturerLecturerId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Coordinator">
+          <Key>
+            <PropertyRef Name="CoordinatorId" />
+          </Key>
+          <Property Name="CoordinatorId" Type="String" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" />
+          <NavigationProperty Name="Syllabus" Relationship="ScitMajorProjectModel.CoordinatorSyllabus" FromRole="Coordinator" ToRole="Syllabus" />
+        </EntityType>
+        <EntityType Name="Project">
+          <Key>
+            <PropertyRef Name="ProjectId" />
+          </Key>
+          <Property Name="ProjectId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="20" />
+          <Property Name="Topic" Type="String" Nullable="false" MaxLength="20" />
+          <Property Name="AcademicYear" Type="String" Nullable="false" MaxLength="20" />
+          <Property Name="FilePath" Type="String" Nullable="false" />
+          <NavigationProperty Name="Lecturer" Relationship="ScitMajorProjectModel.LecturerProject" FromRole="Project" ToRole="Lecturer" />
+          <Property Name="LecturerLecturerId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Student" Relationship="ScitMajorProjectModel.StudentProject" FromRole="Project" ToRole="Student" />
+        </EntityType>
+        <Association Name="LecturerMemo">
+          <End Type="ScitMajorProjectModel.Lecturer" Role="Lecturer" Multiplicity="1" />
+          <End Type="ScitMajorProjectModel.Memo" Role="Memo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lecturer">
+              <PropertyRef Name="LecturerId" />
+            </Principal>
+            <Dependent Role="Memo">
+              <PropertyRef Name="LecturerLecturerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="LecturerProject">
+          <End Type="ScitMajorProjectModel.Lecturer" Role="Lecturer" Multiplicity="1" />
+          <End Type="ScitMajorProjectModel.Project" Role="Project" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lecturer">
+              <PropertyRef Name="LecturerId" />
+            </Principal>
+            <Dependent Role="Project">
+              <PropertyRef Name="LecturerLecturerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="LibarianDocument">
+          <End Type="ScitMajorProjectModel.Libarian" Role="Libarian" Multiplicity="1" />
+          <End Type="ScitMajorProjectModel.Document" Role="Document" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Libarian">
+              <PropertyRef Name="LibarianId" />
+            </Principal>
+            <Dependent Role="Document">
+              <PropertyRef Name="LibarianLibarianId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="LecturerStudent">
+          <End Type="ScitMajorProjectModel.Lecturer" Role="Lecturer" Multiplicity="1" />
+          <End Type="ScitMajorProjectModel.Student" Role="Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lecturer">
+              <PropertyRef Name="LecturerId" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="LecturerLecturerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="StudentProject">
+          <End Type="ScitMajorProjectModel.Student" Role="Student" Multiplicity="1" />
+          <End Type="ScitMajorProjectModel.Project" Role="Project" Multiplicity="1" />
+        </Association>
+        <EntityType Name="Syllabus">
+          <Key>
+            <PropertyRef Name="SyllabusId" />
+          </Key>
+          <Property Name="SyllabusId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="20" />
+          <Property Name="FilePath" Type="String" Nullable="false" />
+          <NavigationProperty Name="Coordinator" Relationship="ScitMajorProjectModel.CoordinatorSyllabus" FromRole="Syllabus" ToRole="Coordinator" />
+          <Property Name="CoordinatorCoordinatorId" Type="String" Nullable="false" />
+          <NavigationProperty Name="MarkScheme" Relationship="ScitMajorProjectModel.SyllabusMarkScheme" FromRole="Syllabus" ToRole="MarkScheme" />
+        </EntityType>
+        <EntityType Name="MarkScheme">
+          <Key>
+            <PropertyRef Name="MarkSchemeId" />
+          </Key>
+          <Property Name="MarkSchemeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FilePath" Type="String" Nullable="false" />
+          <NavigationProperty Name="Syllabu" Relationship="ScitMajorProjectModel.SyllabusMarkScheme" FromRole="MarkScheme" ToRole="Syllabus" />
+        </EntityType>
+        <Association Name="CoordinatorSyllabus">
+          <End Type="ScitMajorProjectModel.Coordinator" Role="Coordinator" Multiplicity="1" />
+          <End Type="ScitMajorProjectModel.Syllabus" Role="Syllabus" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Coordinator">
+              <PropertyRef Name="CoordinatorId" />
+            </Principal>
+            <Dependent Role="Syllabus">
+              <PropertyRef Name="CoordinatorCoordinatorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SyllabusMarkScheme">
+          <End Type="ScitMajorProjectModel.Syllabus" Role="Syllabus" Multiplicity="1" />
+          <End Type="ScitMajorProjectModel.MarkScheme" Role="MarkScheme" Multiplicity="1" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ScitMajorProjectModelStoreContainer" CdmEntityContainer="ScitMajorProjectModelContainer">
+    <EntitySetMapping Name="Students">
+      <EntityTypeMapping TypeName="IsTypeOf(ScitMajorProjectModel.Student)">
+        <MappingFragment StoreEntitySet="Students">
+          <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Faculty" ColumnName="Faculty" />
+          <ScalarProperty Name="IDNumber" ColumnName="IDNumber" />
+          <ScalarProperty Name="LecturerLecturerId" ColumnName="LecturerLecturerId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Lecturers">
+      <EntityTypeMapping TypeName="IsTypeOf(ScitMajorProjectModel.Lecturer)">
+        <MappingFragment StoreEntitySet="Lecturers">
+          <ScalarProperty Name="LecturerId" ColumnName="LecturerId" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Faculty" ColumnName="Faculty" />
+          <ScalarProperty Name="OfficeExtension" ColumnName="OfficeExtension" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Libarians">
+      <EntityTypeMapping TypeName="IsTypeOf(ScitMajorProjectModel.Libarian)">
+        <MappingFragment StoreEntitySet="Libarians">
+          <ScalarProperty Name="LibarianId" ColumnName="LibarianId" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Documents">
+      <EntityTypeMapping TypeName="IsTypeOf(ScitMajorProjectModel.Document)">
+        <MappingFragment StoreEntitySet="Documents">
+          <ScalarProperty Name="DocumentId" ColumnName="DocumentId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+          <ScalarProperty Name="LibarianLibarianId" ColumnName="LibarianLibarianId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Memos">
+      <EntityTypeMapping TypeName="IsTypeOf(ScitMajorProjectModel.Memo)">
+        <MappingFragment StoreEntitySet="Memos">
+          <ScalarProperty Name="MemoId" ColumnName="MemoId" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="LecturerLecturerId" ColumnName="LecturerLecturerId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Coordinators">
+      <EntityTypeMapping TypeName="IsTypeOf(ScitMajorProjectModel.Coordinator)">
+        <MappingFragment StoreEntitySet="Coordinators">
+          <ScalarProperty Name="CoordinatorId" ColumnName="CoordinatorId" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Projects">
+      <EntityTypeMapping TypeName="IsTypeOf(ScitMajorProjectModel.Project)">
+        <MappingFragment StoreEntitySet="Projects">
+          <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Topic" ColumnName="Topic" />
+          <ScalarProperty Name="AcademicYear" ColumnName="AcademicYear" />
+          <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+          <ScalarProperty Name="LecturerLecturerId" ColumnName="LecturerLecturerId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Syllabus">
+      <EntityTypeMapping TypeName="IsTypeOf(ScitMajorProjectModel.Syllabus)">
+        <MappingFragment StoreEntitySet="Syllabus">
+          <ScalarProperty Name="SyllabusId" ColumnName="SyllabusId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+          <ScalarProperty Name="CoordinatorCoordinatorId" ColumnName="CoordinatorCoordinatorId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MarkSchemes">
+      <EntityTypeMapping TypeName="IsTypeOf(ScitMajorProjectModel.MarkScheme)">
+        <MappingFragment StoreEntitySet="MarkSchemes">
+          <ScalarProperty Name="MarkSchemeId" ColumnName="MarkSchemeId" />
+          <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="StudentProject" TypeName="ScitMajorProjectModel.StudentProject" StoreEntitySet="Students">
+      <EndProperty Name="Project">
+        <ScalarProperty Name="ProjectId" ColumnName="Project_ProjectId" />
+      </EndProperty>
+      <EndProperty Name="Student">
+        <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="SyllabusMarkScheme" TypeName="ScitMajorProjectModel.SyllabusMarkScheme" StoreEntitySet="Syllabus">
+      <EndProperty Name="MarkScheme">
+        <ScalarProperty Name="MarkSchemeId" ColumnName="MarkScheme_MarkSchemeId" />
+      </EndProperty>
+      <EndProperty Name="Syllabus">
+        <ScalarProperty Name="SyllabusId" ColumnName="SyllabusId" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

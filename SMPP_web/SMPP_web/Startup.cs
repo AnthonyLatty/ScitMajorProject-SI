@@ -22,12 +22,12 @@ namespace SMPP_web
             var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
 
 
-            if (!roleManager.RoleExists("Coordinator"))
+            if (!roleManager.RoleExists("Admin"))
             {
                 //Create admin role
                 var CoordinatorRole = new IdentityRole
                 {
-                    Name = "Coordinator"
+                    Name = "Admin"
                 };
 
                 roleManager.Create(CoordinatorRole);
@@ -35,8 +35,8 @@ namespace SMPP_web
                 // Create admin user
                 var CoordinatorUser = new ApplicationUser
                 {
-                    UserName = "Coordinator@utechja.com",
-                    Email = "Coordinator@utechja.com"
+                    UserName = "SMPPAdmin@utechja.com",
+                    Email = "SMPPAdmin@utechja.com"
                 };
 
                 // Use random string for password
