@@ -15,13 +15,7 @@
     <EntitySet Name="Projects" EntityType="ScitMajorProjectModel.Store.Projects" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Syllabus" EntityType="ScitMajorProjectModel.Store.Syllabus" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="MarkSchemes" EntityType="ScitMajorProjectModel.Store.MarkSchemes" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="C__MigrationHistory" EntityType="ScitMajorProjectModel.Store.C__MigrationHistory" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="AspNetRoles" EntityType="ScitMajorProjectModel.Store.AspNetRoles" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="AspNetUserClaims" EntityType="ScitMajorProjectModel.Store.AspNetUserClaims" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="AspNetUserLogins" EntityType="ScitMajorProjectModel.Store.AspNetUserLogins" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="AspNetUsers" EntityType="ScitMajorProjectModel.Store.AspNetUsers" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Groups" EntityType="ScitMajorProjectModel.Store.Groups" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="AspNetUserRoles" EntityType="ScitMajorProjectModel.Store.AspNetUserRoles" store:Type="Tables" Schema="dbo" />
     <AssociationSet Name="LecturerMemo" Association="ScitMajorProjectModel.Store.LecturerMemo">
       <End Role="Lecturer" EntitySet="Lecturers" />
       <End Role="Memo" EntitySet="Memos" />
@@ -29,22 +23,6 @@
     <AssociationSet Name="LibarianDocument" Association="ScitMajorProjectModel.Store.LibarianDocument">
       <End Role="Libarian" EntitySet="Libarians" />
       <End Role="Document" EntitySet="Documents" />
-    </AssociationSet>
-    <AssociationSet Name="CoordinatorSyllabus" Association="ScitMajorProjectModel.Store.CoordinatorSyllabus">
-      <End Role="Coordinator" EntitySet="Coordinators" />
-      <End Role="Syllabus" EntitySet="Syllabus" />
-    </AssociationSet>
-    <AssociationSet Name="SyllabusMarkScheme" Association="ScitMajorProjectModel.Store.SyllabusMarkScheme">
-      <End Role="Syllabus" EntitySet="Syllabus" />
-      <End Role="MarkScheme" EntitySet="MarkSchemes" />
-    </AssociationSet>
-    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="ScitMajorProjectModel.Store.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
-      <End Role="AspNetUser" EntitySet="AspNetUsers" />
-      <End Role="AspNetUserClaim" EntitySet="AspNetUserClaims" />
-    </AssociationSet>
-    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="ScitMajorProjectModel.Store.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
-      <End Role="AspNetUser" EntitySet="AspNetUsers" />
-      <End Role="AspNetUserLogin" EntitySet="AspNetUserLogins" />
     </AssociationSet>
     <AssociationSet Name="FK_Group_Lecturers" Association="ScitMajorProjectModel.Store.FK_Group_Lecturers">
       <End Role="Lecturer" EntitySet="Lecturers" />
@@ -58,13 +36,13 @@
       <End Role="Student" EntitySet="Students" />
       <End Role="Group" EntitySet="Groups" />
     </AssociationSet>
-    <AssociationSet Name="FK_AspNetUserRoles_AspNetRole" Association="ScitMajorProjectModel.Store.FK_AspNetUserRoles_AspNetRole">
-      <End Role="AspNetRole" EntitySet="AspNetRoles" />
-      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    <AssociationSet Name="CoordinatorSyllabus" Association="ScitMajorProjectModel.Store.CoordinatorSyllabus">
+      <End Role="Coordinator" EntitySet="Coordinators" />
+      <End Role="Syllabus" EntitySet="Syllabus" />
     </AssociationSet>
-    <AssociationSet Name="FK_AspNetUserRoles_AspNetUser" Association="ScitMajorProjectModel.Store.FK_AspNetUserRoles_AspNetUser">
-      <End Role="AspNetUser" EntitySet="AspNetUsers" />
-      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    <AssociationSet Name="SyllabusMarkScheme" Association="ScitMajorProjectModel.Store.SyllabusMarkScheme">
+      <End Role="Syllabus" EntitySet="Syllabus" />
+      <End Role="MarkScheme" EntitySet="MarkSchemes" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="Students">
@@ -118,7 +96,7 @@
     <Key>
       <PropertyRef Name="CoordinatorId" />
     </Key>
-    <Property Name="CoordinatorId" Type="nvarchar(max)" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CoordinatorId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="50" />
     <Property Name="LastName" Type="nvarchar" Nullable="false" MaxLength="50" />
   </EntityType>
@@ -139,7 +117,7 @@
     <Property Name="SyllabusId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="20" />
     <Property Name="FilePath" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="CoordinatorCoordinatorId" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CoordinatorCoordinatorId" Type="int" Nullable="false" />
     <Property Name="MarkScheme_MarkSchemeId" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="MarkSchemes">
@@ -148,59 +126,6 @@
     </Key>
     <Property Name="MarkSchemeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="FilePath" Type="nvarchar(max)" Nullable="false" />
-  </EntityType>
-  <EntityType Name="C__MigrationHistory">
-    <Key>
-      <PropertyRef Name="MigrationId" />
-      <PropertyRef Name="ContextKey" />
-    </Key>
-    <Property Name="MigrationId" Type="nvarchar" Nullable="false" MaxLength="150" />
-    <Property Name="ContextKey" Type="nvarchar" Nullable="false" MaxLength="300" />
-    <Property Name="Model" Type="varbinary(max)" Nullable="false" />
-    <Property Name="ProductVersion" Type="nvarchar" Nullable="false" MaxLength="32" />
-  </EntityType>
-  <EntityType Name="AspNetRoles">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="nvarchar" Nullable="false" MaxLength="128" />
-    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="256" />
-  </EntityType>
-  <EntityType Name="AspNetUserClaims">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="UserId" Type="nvarchar" Nullable="false" MaxLength="128" />
-    <Property Name="ClaimType" Type="nvarchar(max)" Nullable="true" />
-    <Property Name="ClaimValue" Type="nvarchar(max)" Nullable="true" />
-  </EntityType>
-  <EntityType Name="AspNetUserLogins">
-    <Key>
-      <PropertyRef Name="LoginProvider" />
-      <PropertyRef Name="ProviderKey" />
-      <PropertyRef Name="UserId" />
-    </Key>
-    <Property Name="LoginProvider" Type="nvarchar" Nullable="false" MaxLength="128" />
-    <Property Name="ProviderKey" Type="nvarchar" Nullable="false" MaxLength="128" />
-    <Property Name="UserId" Type="nvarchar" Nullable="false" MaxLength="128" />
-  </EntityType>
-  <EntityType Name="AspNetUsers">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="nvarchar" Nullable="false" MaxLength="128" />
-    <Property Name="Email" Type="nvarchar" Nullable="true" MaxLength="256" />
-    <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
-    <Property Name="PasswordHash" Type="nvarchar(max)" Nullable="true" />
-    <Property Name="SecurityStamp" Type="nvarchar(max)" Nullable="true" />
-    <Property Name="PhoneNumber" Type="nvarchar(max)" Nullable="true" />
-    <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
-    <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
-    <Property Name="LockoutEndDateUtc" Type="datetime" Nullable="true" />
-    <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
-    <Property Name="AccessFailedCount" Type="int" Nullable="false" />
-    <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="256" />
   </EntityType>
   <EntityType Name="Groups">
     <Key>
@@ -211,14 +136,6 @@
     <Property Name="StudentId" Type="int" Nullable="false" />
     <Property Name="LecturerId" Type="int" Nullable="false" />
     <Property Name="ProjectId" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="AspNetUserRoles">
-    <Key>
-      <PropertyRef Name="AspNetRoles_Id" />
-      <PropertyRef Name="AspNetUsers_Id" />
-    </Key>
-    <Property Name="AspNetRoles_Id" Type="nvarchar" Nullable="false" MaxLength="128" />
-    <Property Name="AspNetUsers_Id" Type="nvarchar" Nullable="false" MaxLength="128" />
   </EntityType>
   <Association Name="LecturerMemo">
     <End Role="Lecturer" Type="ScitMajorProjectModel.Store.Lecturers" Multiplicity="1" />
@@ -241,58 +158,6 @@
       </Principal>
       <Dependent Role="Document">
         <PropertyRef Name="LibarianLibarianId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="CoordinatorSyllabus">
-    <End Role="Coordinator" Type="ScitMajorProjectModel.Store.Coordinators" Multiplicity="1" />
-    <End Role="Syllabus" Type="ScitMajorProjectModel.Store.Syllabus" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Coordinator">
-        <PropertyRef Name="CoordinatorId" />
-      </Principal>
-      <Dependent Role="Syllabus">
-        <PropertyRef Name="CoordinatorCoordinatorId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="SyllabusMarkScheme">
-    <End Role="Syllabus" Type="ScitMajorProjectModel.Store.Syllabus" Multiplicity="*" />
-    <End Role="MarkScheme" Type="ScitMajorProjectModel.Store.MarkSchemes" Multiplicity="1" />
-    <ReferentialConstraint>
-      <Principal Role="MarkScheme">
-        <PropertyRef Name="MarkSchemeId" />
-      </Principal>
-      <Dependent Role="Syllabus">
-        <PropertyRef Name="MarkScheme_MarkSchemeId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
-    <End Role="AspNetUser" Type="ScitMajorProjectModel.Store.AspNetUsers" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="AspNetUserClaim" Type="ScitMajorProjectModel.Store.AspNetUserClaims" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="AspNetUser">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="AspNetUserClaim">
-        <PropertyRef Name="UserId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
-    <End Role="AspNetUser" Type="ScitMajorProjectModel.Store.AspNetUsers" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="AspNetUserLogin" Type="ScitMajorProjectModel.Store.AspNetUserLogins" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="AspNetUser">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="AspNetUserLogin">
-        <PropertyRef Name="UserId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -332,27 +197,27 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_AspNetUserRoles_AspNetRole">
-    <End Role="AspNetRole" Type="ScitMajorProjectModel.Store.AspNetRoles" Multiplicity="1" />
-    <End Role="AspNetUserRoles" Type="ScitMajorProjectModel.Store.AspNetUserRoles" Multiplicity="*" />
+  <Association Name="CoordinatorSyllabus">
+    <End Role="Coordinator" Type="ScitMajorProjectModel.Store.Coordinators" Multiplicity="1" />
+    <End Role="Syllabus" Type="ScitMajorProjectModel.Store.Syllabus" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="AspNetRole">
-        <PropertyRef Name="Id" />
+      <Principal Role="Coordinator">
+        <PropertyRef Name="CoordinatorId" />
       </Principal>
-      <Dependent Role="AspNetUserRoles">
-        <PropertyRef Name="AspNetRoles_Id" />
+      <Dependent Role="Syllabus">
+        <PropertyRef Name="CoordinatorCoordinatorId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_AspNetUserRoles_AspNetUser">
-    <End Role="AspNetUserRoles" Type="ScitMajorProjectModel.Store.AspNetUserRoles" Multiplicity="*" />
-    <End Role="AspNetUser" Type="ScitMajorProjectModel.Store.AspNetUsers" Multiplicity="1" />
+  <Association Name="SyllabusMarkScheme">
+    <End Role="Syllabus" Type="ScitMajorProjectModel.Store.Syllabus" Multiplicity="*" />
+    <End Role="MarkScheme" Type="ScitMajorProjectModel.Store.MarkSchemes" Multiplicity="1" />
     <ReferentialConstraint>
-      <Principal Role="AspNetUser">
-        <PropertyRef Name="Id" />
+      <Principal Role="MarkScheme">
+        <PropertyRef Name="MarkSchemeId" />
       </Principal>
-      <Dependent Role="AspNetUserRoles">
-        <PropertyRef Name="AspNetUsers_Id" />
+      <Dependent Role="Syllabus">
+        <PropertyRef Name="MarkScheme_MarkSchemeId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -378,28 +243,7 @@
           </AssociationSet>
           <EntitySet Name="Syllabus" EntityType="ScitMajorProjectModel.Syllabus" />
           <EntitySet Name="MarkSchemes" EntityType="ScitMajorProjectModel.MarkScheme" />
-          <AssociationSet Name="CoordinatorSyllabus" Association="ScitMajorProjectModel.CoordinatorSyllabus">
-            <End Role="Coordinator" EntitySet="Coordinators" />
-            <End Role="Syllabus" EntitySet="Syllabus" />
-          </AssociationSet>
-          <AssociationSet Name="SyllabusMarkScheme" Association="ScitMajorProjectModel.SyllabusMarkScheme">
-            <End Role="Syllabus" EntitySet="Syllabus" />
-            <End Role="MarkScheme" EntitySet="MarkSchemes" />
-          </AssociationSet>
-          <EntitySet Name="C__MigrationHistory" EntityType="ScitMajorProjectModel.C__MigrationHistory" />
-          <EntitySet Name="AspNetRoles" EntityType="ScitMajorProjectModel.AspNetRole" />
-          <EntitySet Name="AspNetUserClaims" EntityType="ScitMajorProjectModel.AspNetUserClaim" />
-          <EntitySet Name="AspNetUserLogins" EntityType="ScitMajorProjectModel.AspNetUserLogin" />
-          <EntitySet Name="AspNetUsers" EntityType="ScitMajorProjectModel.AspNetUser" />
           <EntitySet Name="Groups" EntityType="ScitMajorProjectModel.Group" />
-          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="ScitMajorProjectModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
-            <End Role="AspNetUser" EntitySet="AspNetUsers" />
-            <End Role="AspNetUserClaim" EntitySet="AspNetUserClaims" />
-          </AssociationSet>
-          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="ScitMajorProjectModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
-            <End Role="AspNetUser" EntitySet="AspNetUsers" />
-            <End Role="AspNetUserLogin" EntitySet="AspNetUserLogins" />
-          </AssociationSet>
           <AssociationSet Name="FK_Group_Lecturers" Association="ScitMajorProjectModel.FK_Group_Lecturers">
             <End Role="Lecturer" EntitySet="Lecturers" />
             <End Role="Group" EntitySet="Groups" />
@@ -412,9 +256,13 @@
             <End Role="Student" EntitySet="Students" />
             <End Role="Group" EntitySet="Groups" />
           </AssociationSet>
-          <AssociationSet Name="AspNetUserRoles" Association="ScitMajorProjectModel.AspNetUserRoles">
-            <End Role="AspNetRole" EntitySet="AspNetRoles" />
-            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+          <AssociationSet Name="CoordinatorSyllabus" Association="ScitMajorProjectModel.CoordinatorSyllabus">
+            <End Role="Coordinator" EntitySet="Coordinators" />
+            <End Role="Syllabus" EntitySet="Syllabus" />
+          </AssociationSet>
+          <AssociationSet Name="SyllabusMarkScheme" Association="ScitMajorProjectModel.SyllabusMarkScheme">
+            <End Role="Syllabus" EntitySet="Syllabus" />
+            <End Role="MarkScheme" EntitySet="MarkSchemes" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Student">
@@ -474,7 +322,7 @@
           <Key>
             <PropertyRef Name="CoordinatorId" />
           </Key>
-          <Property Name="CoordinatorId" Type="String" Nullable="false" annotation:StoreGeneratedPattern="Identity" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="CoordinatorId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
           <NavigationProperty Name="Syllabus" Relationship="ScitMajorProjectModel.CoordinatorSyllabus" FromRole="Coordinator" ToRole="Syllabus" />
@@ -522,7 +370,7 @@
           <Property Name="Title" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
           <Property Name="FilePath" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <NavigationProperty Name="Coordinator" Relationship="ScitMajorProjectModel.CoordinatorSyllabus" FromRole="Syllabus" ToRole="Coordinator" />
-          <Property Name="CoordinatorCoordinatorId" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="CoordinatorCoordinatorId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="MarkScheme" Relationship="ScitMajorProjectModel.SyllabusMarkScheme" FromRole="Syllabus" ToRole="MarkScheme" />
         </EntityType>
         <EntityType Name="MarkScheme">
@@ -531,82 +379,7 @@
           </Key>
           <Property Name="MarkSchemeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="FilePath" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <NavigationProperty Name="Syllabu" Relationship="ScitMajorProjectModel.SyllabusMarkScheme" FromRole="MarkScheme" ToRole="Syllabus" />
-        </EntityType>
-        <Association Name="CoordinatorSyllabus">
-          <End Type="ScitMajorProjectModel.Coordinator" Role="Coordinator" Multiplicity="1" />
-          <End Type="ScitMajorProjectModel.Syllabus" Role="Syllabus" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Coordinator">
-              <PropertyRef Name="CoordinatorId" />
-            </Principal>
-            <Dependent Role="Syllabus">
-              <PropertyRef Name="CoordinatorCoordinatorId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="SyllabusMarkScheme">
-          <End Type="ScitMajorProjectModel.Syllabus" Role="Syllabus" Multiplicity="1" />
-          <End Type="ScitMajorProjectModel.MarkScheme" Role="MarkScheme" Multiplicity="1" />
-        </Association>
-        <EntityType Name="C__MigrationHistory">
-          <Key>
-            <PropertyRef Name="MigrationId" />
-            <PropertyRef Name="ContextKey" />
-          </Key>
-          <Property Name="MigrationId" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="ContextKey" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
-          <Property Name="Model" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
-          <Property Name="ProductVersion" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="AspNetRole">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="AspNetUsers" Relationship="ScitMajorProjectModel.AspNetUserRoles" FromRole="AspNetRole" ToRole="AspNetUser" />
-        </EntityType>
-        <EntityType Name="AspNetUserClaim">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="AspNetUser" Relationship="ScitMajorProjectModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaim" ToRole="AspNetUser" />
-        </EntityType>
-        <EntityType Name="AspNetUserLogin">
-          <Key>
-            <PropertyRef Name="LoginProvider" />
-            <PropertyRef Name="ProviderKey" />
-            <PropertyRef Name="UserId" />
-          </Key>
-          <Property Name="LoginProvider" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="ProviderKey" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="AspNetUser" Relationship="ScitMajorProjectModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogin" ToRole="AspNetUser" />
-        </EntityType>
-        <EntityType Name="AspNetUser">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
-          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
-          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
-          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
-          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
-          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
-          <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="AspNetUserClaims" Relationship="ScitMajorProjectModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserClaim" />
-          <NavigationProperty Name="AspNetUserLogins" Relationship="ScitMajorProjectModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserLogin" />
-          <NavigationProperty Name="AspNetRoles" Relationship="ScitMajorProjectModel.AspNetUserRoles" FromRole="AspNetUser" ToRole="AspNetRole" />
+          <NavigationProperty Name="Syllabus" Relationship="ScitMajorProjectModel.SyllabusMarkScheme" FromRole="MarkScheme" ToRole="Syllabus" />
         </EntityType>
         <EntityType Name="Group">
           <Key>
@@ -621,34 +394,6 @@
           <NavigationProperty Name="Project" Relationship="ScitMajorProjectModel.FK_Group_Projects" FromRole="Group" ToRole="Project" />
           <NavigationProperty Name="Student" Relationship="ScitMajorProjectModel.FK_Group_Students" FromRole="Group" ToRole="Student" />
         </EntityType>
-        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
-          <End Type="ScitMajorProjectModel.AspNetUser" Role="AspNetUser" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="ScitMajorProjectModel.AspNetUserClaim" Role="AspNetUserClaim" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetUser">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="AspNetUserClaim">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
-          <End Type="ScitMajorProjectModel.AspNetUser" Role="AspNetUser" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="ScitMajorProjectModel.AspNetUserLogin" Role="AspNetUserLogin" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetUser">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="AspNetUserLogin">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Group_Lecturers">
           <End Type="ScitMajorProjectModel.Lecturer" Role="Lecturer" Multiplicity="1" />
           <End Type="ScitMajorProjectModel.Group" Role="Group" Multiplicity="*" />
@@ -685,9 +430,21 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="AspNetUserRoles">
-          <End Type="ScitMajorProjectModel.AspNetRole" Role="AspNetRole" Multiplicity="*" />
-          <End Type="ScitMajorProjectModel.AspNetUser" Role="AspNetUser" Multiplicity="*" />
+        <Association Name="CoordinatorSyllabus">
+          <End Type="ScitMajorProjectModel.Coordinator" Role="Coordinator" Multiplicity="1" />
+          <End Type="ScitMajorProjectModel.Syllabus" Role="Syllabus" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Coordinator">
+              <PropertyRef Name="CoordinatorId" />
+            </Principal>
+            <Dependent Role="Syllabus">
+              <PropertyRef Name="CoordinatorCoordinatorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SyllabusMarkScheme">
+          <End Type="ScitMajorProjectModel.Syllabus" Role="Syllabus" Multiplicity="1" />
+          <End Type="ScitMajorProjectModel.MarkScheme" Role="MarkScheme" Multiplicity="1" />
         </Association>
       </Schema>
     </edmx:ConceptualModels>
@@ -785,61 +542,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="C__MigrationHistory">
-      <EntityTypeMapping TypeName="IsTypeOf(ScitMajorProjectModel.C__MigrationHistory)">
-        <MappingFragment StoreEntitySet="C__MigrationHistory">
-          <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
-          <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
-          <ScalarProperty Name="Model" ColumnName="Model" />
-          <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="AspNetRoles">
-      <EntityTypeMapping TypeName="IsTypeOf(ScitMajorProjectModel.AspNetRole)">
-        <MappingFragment StoreEntitySet="AspNetRoles">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="AspNetUserClaims">
-      <EntityTypeMapping TypeName="IsTypeOf(ScitMajorProjectModel.AspNetUserClaim)">
-        <MappingFragment StoreEntitySet="AspNetUserClaims">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="UserId" ColumnName="UserId" />
-          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
-          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="AspNetUserLogins">
-      <EntityTypeMapping TypeName="IsTypeOf(ScitMajorProjectModel.AspNetUserLogin)">
-        <MappingFragment StoreEntitySet="AspNetUserLogins">
-          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
-          <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
-          <ScalarProperty Name="UserId" ColumnName="UserId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="AspNetUsers">
-      <EntityTypeMapping TypeName="IsTypeOf(ScitMajorProjectModel.AspNetUser)">
-        <MappingFragment StoreEntitySet="AspNetUsers">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Email" ColumnName="Email" />
-          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
-          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
-          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
-          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
-          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
-          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
-          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
-          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
-          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
-          <ScalarProperty Name="UserName" ColumnName="UserName" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Groups">
       <EntityTypeMapping TypeName="IsTypeOf(ScitMajorProjectModel.Group)">
         <MappingFragment StoreEntitySet="Groups">
@@ -857,14 +559,6 @@
       </EndProperty>
       <EndProperty Name="Syllabus">
         <ScalarProperty Name="SyllabusId" ColumnName="SyllabusId" />
-      </EndProperty>
-    </AssociationSetMapping>
-    <AssociationSetMapping Name="AspNetUserRoles" TypeName="ScitMajorProjectModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
-      <EndProperty Name="AspNetRole">
-        <ScalarProperty Name="Id" ColumnName="AspNetRoles_Id" />
-      </EndProperty>
-      <EndProperty Name="AspNetUser">
-        <ScalarProperty Name="Id" ColumnName="AspNetUsers_Id" />
       </EndProperty>
     </AssociationSetMapping>
   </EntityContainerMapping>

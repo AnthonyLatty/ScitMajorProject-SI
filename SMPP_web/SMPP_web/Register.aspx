@@ -7,9 +7,59 @@
     </p>
 
     <div class="form-horizontal">
-        <h4>Create a new account</h4>
+        <h4>Create a new student account</h4>
         <hr />
-        <asp:ValidationSummary runat="server" CssClass="text-danger" />
+        <asp:ValidationSummary runat="server" CssClass="alert alert-danger" />
+        <div class="form-group">
+            <asp:Label runat="server" AssociatedControlID="txtIDNumber" CssClass="col-md-2 control-label">ID No.</asp:Label>
+            <div class="col-md-10">
+                <asp:TextBox runat="server" ID="txtIDNumber" CssClass="form-control" TextMode="Number" />
+                <asp:RequiredFieldValidator runat="server" ControlToValidate="txtIDNumber"
+                    CssClass="text-danger" ErrorMessage="The ID number field is required." />
+            </div>
+        </div>
+        <div class="form-group">
+            <asp:Label runat="server" AssociatedControlID="txtFirstName" CssClass="col-md-2 control-label">First Name</asp:Label>
+            <div class="col-md-10">
+                <asp:TextBox runat="server" ID="txtFirstName" CssClass="form-control" />
+                <asp:RequiredFieldValidator runat="server" ControlToValidate="txtFirstName"
+                    CssClass="text-danger" ErrorMessage="The first name field is required." />
+            </div>
+        </div>
+        <div class="form-group">
+            <asp:Label runat="server" AssociatedControlID="txtLastName" CssClass="col-md-2 control-label">Last Name</asp:Label>
+            <div class="col-md-10">
+                <asp:TextBox runat="server" ID="txtLastName" CssClass="form-control" />
+                <asp:RequiredFieldValidator runat="server" ControlToValidate="txtLastName"
+                    CssClass="text-danger" ErrorMessage="The last name field is required." />
+            </div>
+        </div>
+        <div class="form-group">
+            <asp:Label runat="server" AssociatedControlID="txtAddress" CssClass="col-md-2 control-label">Address</asp:Label>
+            <div class="col-md-10">
+                <asp:TextBox runat="server" ID="txtAddress" CssClass="form-control" TextMode="MultiLine" />
+                <asp:RequiredFieldValidator runat="server" ControlToValidate="txtAddress"
+                    CssClass="text-danger" ErrorMessage="The address field is required." />
+            </div>
+        </div>
+        <div class="form-group">
+            <asp:Label runat="server" AssociatedControlID="ddlFaculty" CssClass="col-md-2 control-label">Faculty</asp:Label>
+            <div class="col-md-10">
+                <asp:DropDownList ID="ddlFaculty" runat="server" CssClass="form-control">
+                    <asp:ListItem>Please select a Faculty</asp:ListItem>
+                    <asp:ListItem Value="1">College of Health Sciences (COHS)</asp:ListItem>
+                    <asp:ListItem Value="2">College of Business and Management (COBAM)</asp:ListItem>
+                    <asp:ListItem Value="3">Faculty of Education and Liberal Studies (FELS)</asp:ListItem>
+                    <asp:ListItem Value="4">Faculty of The Built Environment (FOBE)</asp:ListItem>
+                    <asp:ListItem Value="5">Faculty of Engineering and Computing (FENC)</asp:ListItem>
+                    <asp:ListItem Value="6">Faculty of Law (FOL)</asp:ListItem>
+                    <asp:ListItem Value="7">Faculty of Science and Sport (FOSS)</asp:ListItem>
+                    <asp:ListItem Value="8">Joint Colleges of Medicine, Oral Health & Veterinary Sciences</asp:ListItem>
+                </asp:DropDownList>
+                <asp:RequiredFieldValidator runat="server" ControlToValidate="ddlFaculty"
+                    CssClass="text-danger" ErrorMessage="The faculty field is required." />
+            </div>
+        </div>
         <div class="form-group">
             <asp:Label runat="server" AssociatedControlID="Email" CssClass="col-md-2 control-label">Email</asp:Label>
             <div class="col-md-10">

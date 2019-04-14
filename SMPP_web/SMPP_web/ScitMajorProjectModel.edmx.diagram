@@ -16,20 +16,12 @@
         <AssociationConnector Association="ScitMajorProjectModel.LibarianDocument" />
         <EntityTypeShape EntityType="ScitMajorProjectModel.Syllabus" Width="1.5" PointX="13.375" PointY="3.625" />
         <EntityTypeShape EntityType="ScitMajorProjectModel.MarkScheme" Width="1.5" PointX="16.125" PointY="3.75" />
-        <AssociationConnector Association="ScitMajorProjectModel.CoordinatorSyllabus" />
-        <AssociationConnector Association="ScitMajorProjectModel.SyllabusMarkScheme" />
-        <EntityTypeShape EntityType="ScitMajorProjectModel.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="6.75" />
-        <EntityTypeShape EntityType="ScitMajorProjectModel.AspNetRole" Width="1.5" PointX="0.75" PointY="10.5" />
-        <EntityTypeShape EntityType="ScitMajorProjectModel.AspNetUserClaim" Width="1.5" PointX="5.25" PointY="11.625" />
-        <EntityTypeShape EntityType="ScitMajorProjectModel.AspNetUserLogin" Width="1.5" PointX="5.25" PointY="9" />
-        <EntityTypeShape EntityType="ScitMajorProjectModel.AspNetUser" Width="1.5" PointX="3" PointY="9.375" />
         <EntityTypeShape EntityType="ScitMajorProjectModel.Group" Width="1.5" PointX="10.25" PointY="0.75" />
-        <AssociationConnector Association="ScitMajorProjectModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
-        <AssociationConnector Association="ScitMajorProjectModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
         <AssociationConnector Association="ScitMajorProjectModel.FK_Group_Lecturers" />
         <AssociationConnector Association="ScitMajorProjectModel.FK_Group_Projects" />
         <AssociationConnector Association="ScitMajorProjectModel.FK_Group_Students" />
-        <AssociationConnector Association="ScitMajorProjectModel.AspNetUserRoles" />
+        <AssociationConnector Association="ScitMajorProjectModel.CoordinatorSyllabus" />
+        <AssociationConnector Association="ScitMajorProjectModel.SyllabusMarkScheme" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
