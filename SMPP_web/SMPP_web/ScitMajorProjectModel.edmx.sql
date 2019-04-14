@@ -6,6 +6,7 @@
 -- Generated from EDMX file: C:\ScitMajorProject-SI\SMPP_web\SMPP_web\ScitMajorProjectModel.edmx
 -- --------------------------------------------------
 
+CREATE DATABASE SMP_Portal_web
 SET QUOTED_IDENTIFIER OFF;
 GO
 USE [SMP_Portal_web];
