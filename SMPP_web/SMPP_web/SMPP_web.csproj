@@ -295,6 +295,10 @@
     <Compile Include="Migrations\201904151416518_ResetDatabase.Designer.cs">
       <DependentUpon>201904151416518_ResetDatabase.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201904151531026_RemoveStudentReferenceInGroup.cs" />
+    <Compile Include="Migrations\201904151531026_RemoveStudentReferenceInGroup.Designer.cs">
+      <DependentUpon>201904151531026_RemoveStudentReferenceInGroup.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Group.cs" />
     <Compile Include="Models\Lecturer.cs" />
@@ -392,6 +396,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201904151416518_ResetDatabase.resx">
       <DependentUpon>201904151416518_ResetDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904151531026_RemoveStudentReferenceInGroup.resx">
+      <DependentUpon>201904151531026_RemoveStudentReferenceInGroup.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

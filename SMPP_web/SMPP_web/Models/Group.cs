@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Web;
 
 namespace SMPP_web.Models
 {
@@ -17,7 +14,7 @@ namespace SMPP_web.Models
         public string Name { get; set; }
 
         // Navigation properties
-        public ICollection<Student> Students { get; set; }
+        //public ICollection<Student> Students { get; set; }
 
         public ICollection<Lecturer> Lecturers { get; set; }
 

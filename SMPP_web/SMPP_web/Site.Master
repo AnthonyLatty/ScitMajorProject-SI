@@ -70,7 +70,7 @@
                 <%-- Admin Role --%>
                 <asp:RoleGroup Roles="Admin">
                     <ContentTemplate>
-                        <div class="navbar navbar-inverse navbar-fixed-top">
+                        <div class="navbar navbar-default navbar-fixed-top">
                             <div class="container">
                                 <div class="navbar-header">
                                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -104,7 +104,7 @@
                 <%-- Coordinator Role --%>
                 <asp:RoleGroup Roles="Coordinator">
                     <ContentTemplate>
-                        <div class="navbar navbar-inverse navbar-fixed-top">
+                        <div class="navbar navbar-default navbar-fixed-top">
                             <div class="container">
                                 <div class="navbar-header">
                                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -137,7 +137,7 @@
                 <%-- Student Role --%>
                 <asp:RoleGroup Roles="Student">
                     <ContentTemplate>
-                        <div class="navbar navbar-inverse navbar-fixed-top">
+                        <div class="navbar navbar-default navbar-fixed-top">
                             <div class="container">
                                 <div class="navbar-header">
                                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -171,7 +171,7 @@
                 <%-- Lecturer Role --%>
                 <asp:RoleGroup Roles="Lecturer">
                     <ContentTemplate>
-                        <div class="navbar navbar-inverse navbar-fixed-top">
+                        <div class="navbar navbar-default navbar-fixed-top">
                             <div class="container">
                                 <div class="navbar-header">
                                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -204,7 +204,7 @@
                 <%-- Librarian Role --%>
                 <asp:RoleGroup Roles="Lecturer">
                     <ContentTemplate>
-                        <div class="navbar navbar-inverse navbar-fixed-top">
+                        <div class="navbar navbar-default navbar-fixed-top">
                             <div class="container">
                                 <div class="navbar-header">
                                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
