@@ -46,10 +46,16 @@ namespace SMPP_web.Account
                     Faculty = ddlFaculty.SelectedItem.Text
                 };
 
+                Group studentGroup = new Group
+                {
+                    Name = txtGroupName.Text
+                };
+
                 ScitMajorProjectDbContext dbContext = new ScitMajorProjectDbContext();
                 try
                 {
                     dbContext.Students.Add(registeringStudent);
+                    dbContext.Groups.Add(studentGroup);
                     dbContext.SaveChanges();
                 }
                 catch (DbEntityValidationException x)
