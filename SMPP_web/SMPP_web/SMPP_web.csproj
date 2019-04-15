@@ -299,13 +299,30 @@
     <Compile Include="Migrations\201904151531026_RemoveStudentReferenceInGroup.Designer.cs">
       <DependentUpon>201904151531026_RemoveStudentReferenceInGroup.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201904151549347_AddCoordinatorSchema.cs" />
+    <Compile Include="Migrations\201904151549347_AddCoordinatorSchema.Designer.cs">
+      <DependentUpon>201904151549347_AddCoordinatorSchema.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904151555430_AddSyllabusRelationshipWithCoordinator.cs" />
+    <Compile Include="Migrations\201904151555430_AddSyllabusRelationshipWithCoordinator.Designer.cs">
+      <DependentUpon>201904151555430_AddSyllabusRelationshipWithCoordinator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904151603009_AddRelationshipForLibarianAndDocument.cs" />
+    <Compile Include="Migrations\201904151603009_AddRelationshipForLibarianAndDocument.Designer.cs">
+      <DependentUpon>201904151603009_AddRelationshipForLibarianAndDocument.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Coordinator.cs" />
+    <Compile Include="Models\Document.cs" />
     <Compile Include="Models\Group.cs" />
     <Compile Include="Models\Lecturer.cs" />
+    <Compile Include="Models\Libarian.cs" />
+    <Compile Include="Models\MarkScheme.cs" />
     <Compile Include="Models\Memo.cs" />
     <Compile Include="Models\Project.cs" />
     <Compile Include="Models\ScitMajorProjectDbContext.cs" />
     <Compile Include="Models\Student.cs" />
+    <Compile Include="Models\Syllabus.cs" />
     <Compile Include="Register.aspx.cs">
       <DependentUpon>Register.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -399,6 +416,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201904151531026_RemoveStudentReferenceInGroup.resx">
       <DependentUpon>201904151531026_RemoveStudentReferenceInGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904151549347_AddCoordinatorSchema.resx">
+      <DependentUpon>201904151549347_AddCoordinatorSchema.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904151555430_AddSyllabusRelationshipWithCoordinator.resx">
+      <DependentUpon>201904151555430_AddSyllabusRelationshipWithCoordinator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904151603009_AddRelationshipForLibarianAndDocument.resx">
+      <DependentUpon>201904151603009_AddRelationshipForLibarianAndDocument.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
