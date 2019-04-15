@@ -7,7 +7,6 @@ using System.Web.UI;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
-using Owin;
 using SMPP_web.Models;
 
 namespace SMPP_web.Account
@@ -37,7 +36,7 @@ namespace SMPP_web.Account
 
             if (result.Succeeded)
             {
-                Student registeringStudent = new Student
+                Models.Student registeringStudent = new Models.Student
                 {
                     Id = Email.Text,
                     UtechId = txtIDNumber.Text,
