@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Data.Entity.Validation;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -35,7 +37,34 @@ namespace SMPP_web.Account
 
             if (result.Succeeded)
             {
-                
+                Student registeringStudent = new Student
+                {
+                    Id = Email.Text,
+                    UtechId = txtIDNumber.Text,
+                    FirstName = txtFirstName.Text,
+                    LastName = txtLastName.Text,
+                    Address = txtAddress.Text,
+                    Faculty = ddlFaculty.SelectedItem.Text
+                };
+
+                ScitMajorProjectDbContext dbContext = new ScitMajorProjectDbContext();
+                try
+                {
+                    dbContext.Students.Add(registeringStudent);
+                    dbContext.SaveChanges();
+                }
+                catch (DbEntityValidationException x)
+                {
+                    foreach (var eve in x.EntityValidationErrors)
+                    {
+                        Debug.WriteLine("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:", eve.Entry.Entity.GetType().Name, eve.Entry.State);
+                        foreach (var ve in eve.ValidationErrors)
+                        {
+                            Debug.WriteLine("- Property: \"{0}\", Error: \"{1}\"", ve.PropertyName, ve.ErrorMessage);
+                        }
+                    }
+                    throw;
+                }
 
                 signInManager.SignIn(user, isPersistent: false, rememberBrowser: false);
                 IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
