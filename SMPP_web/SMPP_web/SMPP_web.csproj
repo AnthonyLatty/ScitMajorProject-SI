@@ -311,6 +311,10 @@
     <Compile Include="Migrations\201904151603009_AddRelationshipForLibarianAndDocument.Designer.cs">
       <DependentUpon>201904151603009_AddRelationshipForLibarianAndDocument.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201904151623084_AddNavigationPropertyToMarkScheme.cs" />
+    <Compile Include="Migrations\201904151623084_AddNavigationPropertyToMarkScheme.Designer.cs">
+      <DependentUpon>201904151623084_AddNavigationPropertyToMarkScheme.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Coordinator.cs" />
     <Compile Include="Models\Document.cs" />
@@ -425,6 +429,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201904151603009_AddRelationshipForLibarianAndDocument.resx">
       <DependentUpon>201904151603009_AddRelationshipForLibarianAndDocument.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904151623084_AddNavigationPropertyToMarkScheme.resx">
+      <DependentUpon>201904151623084_AddNavigationPropertyToMarkScheme.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

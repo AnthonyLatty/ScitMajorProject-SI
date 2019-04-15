@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SMPP_web.Models
@@ -13,6 +14,6 @@ namespace SMPP_web.Models
         public string FilePath { get; set; }
 
         // Navigation property
-        public Syllabus Syllabus { get; set; }
+        public ICollection<Syllabus> Syllabi { get; set; }
     }
 }
