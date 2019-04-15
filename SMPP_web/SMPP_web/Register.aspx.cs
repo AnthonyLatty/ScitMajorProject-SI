@@ -35,18 +35,7 @@ namespace SMPP_web.Account
 
             if (result.Succeeded)
             {
-                Student registeringStudent = new Student
-                {
-                    StudentId = Email.Text,
-                    IDNumber = txtIDNumber.Text,
-                    FirstName = txtFirstName.Text,
-                    LastName = txtLastName.Text,
-                    Address = txtAddress.Text,
-                    Faculty = ddlFaculty.SelectedItem.Text
-                };
-                var scitMajorProjectModelContainer = new ScitMajorProjectModelContainer();
-                scitMajorProjectModelContainer.Students.Add(registeringStudent);
-                scitMajorProjectModelContainer.SaveChanges();
+                
 
                 signInManager.SignIn(user, isPersistent: false, rememberBrowser: false);
                 IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);

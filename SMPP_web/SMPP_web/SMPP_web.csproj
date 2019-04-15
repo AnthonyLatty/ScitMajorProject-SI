@@ -190,19 +190,6 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Account\Web.config" />
-    <EntityDeploy Include="ScitMajorProjectModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ScitMajorProjectModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="ScitMajorProjectModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ScitMajorProjectModel.Context.cs</LastGenOutput>
-      <DependentUpon>ScitMajorProjectModel.edmx</DependentUpon>
-    </Content>
-    <Content Include="ScitMajorProjectModel.edmx.diagram">
-      <DependentUpon>ScitMajorProjectModel.edmx</DependentUpon>
-    </Content>
-    <Content Include="ScitMajorProjectModel.edmx.sql" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -227,11 +214,6 @@
     <Content Include="Scripts\esm\popper-utils.js.map" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Images\SMPP_header_2.jpg" />
-    <Content Include="ScitMajorProjectModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ScitMajorProjectModel.cs</LastGenOutput>
-      <DependentUpon>ScitMajorProjectModel.edmx</DependentUpon>
-    </Content>
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
@@ -267,7 +249,6 @@
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
-    <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
     <Content Include="Site.Mobile.Master" />
@@ -301,18 +282,6 @@
     <Compile Include="Account\ManagePassword.aspx.designer.cs">
       <DependentUpon>ManagePassword.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Coordinator.cs">
-      <DependentUpon>ScitMajorProjectModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Document.cs">
-      <DependentUpon>ScitMajorProjectModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Lecturer.cs">
-      <DependentUpon>ScitMajorProjectModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Libarian.cs">
-      <DependentUpon>ScitMajorProjectModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -326,15 +295,6 @@
     </Compile>
     <Compile Include="Account\Manage.aspx.designer.cs">
       <DependentUpon>Manage.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="MarkScheme.cs">
-      <DependentUpon>ScitMajorProjectModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Memo.cs">
-      <DependentUpon>ScitMajorProjectModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Project.cs">
-      <DependentUpon>ScitMajorProjectModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Register.aspx.cs">
       <DependentUpon>Register.aspx</DependentUpon>
@@ -373,21 +333,6 @@
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ScitMajorProjectModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ScitMajorProjectModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ScitMajorProjectModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ScitMajorProjectModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ScitMajorProjectModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ScitMajorProjectModel.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -403,19 +348,6 @@
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
-    <Compile Include="Student.cs">
-      <DependentUpon>ScitMajorProjectModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Syllabus.cs">
-      <DependentUpon>ScitMajorProjectModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ViewSwitcher.ascx.cs">
-      <DependentUpon>ViewSwitcher.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ViewSwitcher.ascx.designer.cs">
-      <DependentUpon>ViewSwitcher.ascx</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Account\Admin\" />
