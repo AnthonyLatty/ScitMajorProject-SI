@@ -327,6 +327,14 @@
     <Compile Include="Migrations\201904151806582_RemoveUnusedPropertyInGroup.Designer.cs">
       <DependentUpon>201904151806582_RemoveUnusedPropertyInGroup.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201904160013475_RemoveGroupPropertyFromStudent.cs" />
+    <Compile Include="Migrations\201904160013475_RemoveGroupPropertyFromStudent.Designer.cs">
+      <DependentUpon>201904160013475_RemoveGroupPropertyFromStudent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904160052034_AddGroupReferenceToStudent.cs" />
+    <Compile Include="Migrations\201904160052034_AddGroupReferenceToStudent.Designer.cs">
+      <DependentUpon>201904160052034_AddGroupReferenceToStudent.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Coordinator.cs" />
     <Compile Include="Models\Document.cs" />
@@ -446,6 +454,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201904151806582_RemoveUnusedPropertyInGroup.resx">
       <DependentUpon>201904151806582_RemoveUnusedPropertyInGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904160013475_RemoveGroupPropertyFromStudent.resx">
+      <DependentUpon>201904160013475_RemoveGroupPropertyFromStudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904160052034_AddGroupReferenceToStudent.resx">
+      <DependentUpon>201904160052034_AddGroupReferenceToStudent.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
