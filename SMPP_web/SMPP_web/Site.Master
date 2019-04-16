@@ -156,16 +156,19 @@
                                             <a runat="server" href="~/">Home</a>
                                         </li>
                                         <li class="dropdown">
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Tools <span class="caret"></span></a>
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Grade Utility <span class="caret"></span></a>
                                             <ul class="dropdown-menu" role="menu">
                                                 <li>
-                                                    <a runat="server" href="~/Account/Student/Syllabus.aspx">Syllabus</a>
+                                                    <a runat="server" href="~/Account/Student/Syllabus.aspx">Course Syllabus</a>
                                                 </li>
                                                 <li>
                                                     <a runat="server" href="#">Mark Scheme</a>
                                                 </li>
                                                 <%--<li class="divider"></li>--%>
                                             </ul>
+                                        </li>
+                                        <li>
+                                            <a runat="server" href="~/Account/Student/Projects.aspx">View all projects</a>
                                         </li>
 
                                     </ul>
