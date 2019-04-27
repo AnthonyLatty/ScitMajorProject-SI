@@ -222,7 +222,7 @@
                                 <div class="navbar-collapse collapse">
                                     <ul class="nav navbar-nav">
                                         <li><a runat="server" href="~/">Home</a></li>
-                                        <li><a runat="server" href="~/">Upload</a></li>
+                                        <li><a runat="server" href="~/Account/Librarian/LibrarianDashboard.aspx">Upload</a></li>
                                     </ul>
                                     <ul class="nav navbar-nav navbar-right">
                                         <li><a runat="server" href="~/Account/Manage" title="Manage your account">Welcome, <%: Context.User.Identity.GetUserName()  %> !</a></li>
