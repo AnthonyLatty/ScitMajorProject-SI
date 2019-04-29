@@ -168,8 +168,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Account\Admin\AdminDashboard.aspx" />
     <Content Include="Account\Coordinator\ProjectGroups.aspx" />
     <Content Include="Account\Forgot.aspx" />
+    <Content Include="Account\Librarian\LibrarianDashboard.aspx" />
     <Content Include="Account\Lockout.aspx" />
     <Content Include="Account\ManagePassword.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -249,6 +251,13 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Account\Admin\AdminDashboard.aspx.cs">
+      <DependentUpon>AdminDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Admin\AdminDashboard.aspx.designer.cs">
+      <DependentUpon>AdminDashboard.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Account\Coordinator\ProjectGroups.aspx.cs">
       <DependentUpon>ProjectGroups.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -262,6 +271,13 @@
     </Compile>
     <Compile Include="Account\Forgot.aspx.designer.cs">
       <DependentUpon>Forgot.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Librarian\LibrarianDashboard.aspx.cs">
+      <DependentUpon>LibrarianDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Librarian\LibrarianDashboard.aspx.designer.cs">
+      <DependentUpon>LibrarianDashboard.aspx</DependentUpon>
     </Compile>
     <Compile Include="Account\Lockout.aspx.cs">
       <DependentUpon>Lockout.aspx</DependentUpon>
@@ -381,9 +397,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Account\Admin\" />
     <Folder Include="Account\Lecturer\" />
-    <Folder Include="Account\Librarian\" />
     <Folder Include="Account\Student\" />
     <Folder Include="App_Data\" />
   </ItemGroup>
