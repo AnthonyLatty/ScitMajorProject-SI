@@ -1,23 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.Entity.Validation;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 using SMPP_web.Models;
 
 namespace SMPP_web.Account.Librarian
 {
-    public partial class LibrarianDashboard : System.Web.UI.Page
+    public partial class LibrarianDashboard : Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
             DateTxtbx.Text = DateTime.Today.ToString().Substring(0, 10);
-
         }
 
         protected void UploadBtn_Click(object sender, EventArgs e)
@@ -30,8 +24,8 @@ namespace SMPP_web.Account.Librarian
                     Date = DateTime.Today,
                     Title = TitleTxtbx.Text,
                     FilePath = Request.PhysicalApplicationPath + "Uploads\\"
-
                 };
+
                 ScitMajorProjectDbContext dbContext = new ScitMajorProjectDbContext();
                 try
                 {
@@ -50,8 +44,6 @@ namespace SMPP_web.Account.Librarian
                     }
                     throw;
                 }
-
-
             }
         }
     }

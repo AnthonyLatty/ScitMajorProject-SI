@@ -6,7 +6,7 @@
     <div class="form-horizontal" style="margin-top: 5%;">
         <h4>Upload a project</h4>
         <hr />
-        <div class="row " style="margin-bottom: 2%;">
+        <div class="row" style="margin-bottom: 2%;">
             <div class="form-group">
                 <asp:Label runat="server" AssociatedControlID="TitleTxtbx" CssClass="col-md-2 control-label">Title </asp:Label>
                 <div class="col-md-7">
@@ -16,8 +16,7 @@
                 </div>
             </div>
         </div>
-        <div class="row " style="margin-bottom: 2%;">
-
+        <div class="row" style="margin-bottom: 2%;">
             <div class="form-group">
                 <asp:Label runat="server" AssociatedControlID="DateTxtbx" CssClass="col-md-2 control-label">Date </asp:Label>
                 <div class="col-md-7">
@@ -27,13 +26,13 @@
         </div>
 
     </div>
-    <div class="row" style="margin-bottom: 2%;margin-left:9em;">
+    <div class="row" style="margin-bottom: 2%; margin-left: 9em;">
         <div class="col-md-5">
             <asp:FileUpload ID="ProjectFileUpload" runat="server" />
         </div>
     </div>
     <div class="row">
-        <div class="col-md-5" style="margin-left:10em;">
+        <div class="col-md-5" style="margin-left: 10em;">
             <asp:Button ID="UploadBtn" runat="server" Text="Upload" CssClass="btn btn-success" OnClick="UploadBtn_Click" />
         </div>
     </div>

@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity.Core;
 using System.Data.Entity.Validation;
 using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
@@ -14,7 +11,7 @@ using SMPP_web.Models;
 
 namespace SMPP_web.Account.Admin
 {
-    public partial class AdminDashboard : System.Web.UI.Page
+    public partial class AdminDashboard : Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -45,10 +42,9 @@ namespace SMPP_web.Account.Admin
                 {
                     Libarian registeringLibrarian = new Libarian
                     {
-                        Id = EmailLibTxtbx.Text,                       
+                        Id = EmailLibTxtbx.Text,
                         FirstName = FirstNameLibTxtbx.Text,
                         LastName = LastNameLibTxtbx.Text
-                        
                     };
 
                     ScitMajorProjectDbContext dbContext = new ScitMajorProjectDbContext();
@@ -56,6 +52,7 @@ namespace SMPP_web.Account.Admin
                     {
                         dbContext.Libarians.Add(registeringLibrarian);
                         dbContext.SaveChanges();
+                        ClearLibarianResults();
                     }
                     catch (DbEntityValidationException x)
                     {
@@ -69,13 +66,19 @@ namespace SMPP_web.Account.Admin
                         }
                         throw;
                     }
-
                 }
                 else
                 {
                     ErrorMessage.Text = result.Errors.FirstOrDefault();
                 }
             }
+        }
+
+        private void ClearLibarianResults()
+        {
+            EmailLibTxtbx.Text = string.Empty;
+            FirstNameLibTxtbx.Text = string.Empty;
+            LastNameLibTxtbx.Text = string.Empty;
         }
 
         protected void RegisterLecturerBtn_Click(object sender, EventArgs e)
@@ -107,8 +110,7 @@ namespace SMPP_web.Account.Admin
                         LastName = LastNameLectTxtbx.Text,
                         Faculty = ddlFaculty.SelectedItem.Text,
                         Office = OfficeLectTextbx.Text,
-                        Extension = OfficeExtLectTextbx.Text                       
-
+                        Extension = OfficeExtLectTextbx.Text
                     };
 
                     ScitMajorProjectDbContext dbContext = new ScitMajorProjectDbContext();
@@ -116,6 +118,7 @@ namespace SMPP_web.Account.Admin
                     {
                         dbContext.Lecturers.Add(registeringLecturer);
                         dbContext.SaveChanges();
+                        ClearLecturerResults();
                     }
                     catch (DbEntityValidationException x)
                     {
@@ -135,6 +138,16 @@ namespace SMPP_web.Account.Admin
                     ErrorMessage.Text = result.Errors.FirstOrDefault();
                 }
             }
+        }
+
+        private void ClearLecturerResults()
+        {
+            EmailLecTxtbx.Text = string.Empty;
+            FirstNameLectTxtbx.Text = string.Empty;
+            LastNameLectTxtbx.Text = string.Empty;
+            ddlFaculty.SelectedItem.Text = string.Empty;
+            OfficeLectTextbx.Text = string.Empty;
+            OfficeExtLectTextbx.Text = string.Empty;
         }
 
         protected void RegisterCoorBtn_Click(object sender, EventArgs e)
@@ -159,12 +172,11 @@ namespace SMPP_web.Account.Admin
 
                 if (result.Succeeded)
                 {
-                    SMPP_web.Models.Coordinator registeringCoordinator = new SMPP_web.Models.Coordinator
+                    Models.Coordinator registeringCoordinator = new Models.Coordinator
                     {
                         Id = EmailCoordTxtbx.Text,
                         FirstName = FirstNameCoorTxtbx.Text,
                         LastName = LastNameCoorTxtbx.Text
-
                     };
 
                     ScitMajorProjectDbContext dbContext = new ScitMajorProjectDbContext();
@@ -172,6 +184,7 @@ namespace SMPP_web.Account.Admin
                     {
                         dbContext.Coordinators.Add(registeringCoordinator);
                         dbContext.SaveChanges();
+                        ClearCoordinatorResults();
                     }
                     catch (DbEntityValidationException x)
                     {
@@ -192,6 +205,13 @@ namespace SMPP_web.Account.Admin
                     ErrorMessage.Text = result.Errors.FirstOrDefault();
                 }
             }
+        }
+
+        private void ClearCoordinatorResults()
+        {
+            EmailCoordTxtbx.Text = string.Empty;
+            FirstNameCoorTxtbx.Text = string.Empty;
+            LastNameCoorTxtbx.Text = string.Empty;
         }
     }
 

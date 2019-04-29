@@ -13,7 +13,7 @@ namespace SMPP_web.Models
         [StringLength(50), Required]
         public string LastName { get; set; }
 
-        [StringLength(30), Required]
+        [StringLength(100), Required]
         public string Faculty { get; set; }
 
         [StringLength(4), Required]

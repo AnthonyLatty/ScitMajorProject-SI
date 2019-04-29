@@ -331,6 +331,14 @@
     <Compile Include="Migrations\201904151623084_AddNavigationPropertyToMarkScheme.Designer.cs">
       <DependentUpon>201904151623084_AddNavigationPropertyToMarkScheme.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201904291846011_AddNewChangesToDatabase.cs" />
+    <Compile Include="Migrations\201904291846011_AddNewChangesToDatabase.Designer.cs">
+      <DependentUpon>201904291846011_AddNewChangesToDatabase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904291917590_ChangeLecturerFacultyLength.cs" />
+    <Compile Include="Migrations\201904291917590_ChangeLecturerFacultyLength.Designer.cs">
+      <DependentUpon>201904291917590_ChangeLecturerFacultyLength.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Coordinator.cs" />
     <Compile Include="Models\Document.cs" />
@@ -446,6 +454,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201904151623084_AddNavigationPropertyToMarkScheme.resx">
       <DependentUpon>201904151623084_AddNavigationPropertyToMarkScheme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904291846011_AddNewChangesToDatabase.resx">
+      <DependentUpon>201904291846011_AddNewChangesToDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904291917590_ChangeLecturerFacultyLength.resx">
+      <DependentUpon>201904291917590_ChangeLecturerFacultyLength.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
