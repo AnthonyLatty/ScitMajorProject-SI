@@ -14,12 +14,11 @@ namespace SMPP_web.Models
         public string Name { get; set; }
 
         // Navigation properties
-        //public ICollection<Student> Students { get; set; }
+        public ICollection<Student> Students { get; set; }
 
         public ICollection<Lecturer> Lecturers { get; set; }
 
         public ICollection<Project> Projects { get; set; }
 
-        public ICollection<Group> Groups { get; set; }
     }
 }

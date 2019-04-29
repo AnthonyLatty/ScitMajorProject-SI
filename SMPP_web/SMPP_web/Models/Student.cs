@@ -21,5 +21,9 @@ namespace SMPP_web.Models
 
         [StringLength(100), Required]
         public string Faculty { get; set; }
+
+        // One to many link with Group
+        public int GroupId { get; set; }
+        public Group Group { get; set; }
     }
 }

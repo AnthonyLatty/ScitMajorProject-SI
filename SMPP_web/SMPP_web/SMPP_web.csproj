@@ -172,6 +172,8 @@
     <Content Include="Account\Forgot.aspx" />
     <Content Include="Account\Lockout.aspx" />
     <Content Include="Account\ManagePassword.aspx" />
+    <Content Include="Account\Student\Projects.aspx" />
+    <Content Include="Account\Student\Syllabus.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -277,6 +279,20 @@
     <Compile Include="Account\ManagePassword.aspx.designer.cs">
       <DependentUpon>ManagePassword.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Account\Student\Projects.aspx.cs">
+      <DependentUpon>Projects.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Student\Projects.aspx.designer.cs">
+      <DependentUpon>Projects.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Student\Syllabus.aspx.cs">
+      <DependentUpon>Syllabus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Student\Syllabus.aspx.designer.cs">
+      <DependentUpon>Syllabus.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -314,6 +330,18 @@
     <Compile Include="Migrations\201904151623084_AddNavigationPropertyToMarkScheme.cs" />
     <Compile Include="Migrations\201904151623084_AddNavigationPropertyToMarkScheme.Designer.cs">
       <DependentUpon>201904151623084_AddNavigationPropertyToMarkScheme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904151806582_RemoveUnusedPropertyInGroup.cs" />
+    <Compile Include="Migrations\201904151806582_RemoveUnusedPropertyInGroup.Designer.cs">
+      <DependentUpon>201904151806582_RemoveUnusedPropertyInGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904160013475_RemoveGroupPropertyFromStudent.cs" />
+    <Compile Include="Migrations\201904160013475_RemoveGroupPropertyFromStudent.Designer.cs">
+      <DependentUpon>201904160013475_RemoveGroupPropertyFromStudent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904160052034_AddGroupReferenceToStudent.cs" />
+    <Compile Include="Migrations\201904160052034_AddGroupReferenceToStudent.Designer.cs">
+      <DependentUpon>201904160052034_AddGroupReferenceToStudent.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Coordinator.cs" />
@@ -384,7 +412,6 @@
     <Folder Include="Account\Admin\" />
     <Folder Include="Account\Lecturer\" />
     <Folder Include="Account\Librarian\" />
-    <Folder Include="Account\Student\" />
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
@@ -432,6 +459,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201904151623084_AddNavigationPropertyToMarkScheme.resx">
       <DependentUpon>201904151623084_AddNavigationPropertyToMarkScheme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904151806582_RemoveUnusedPropertyInGroup.resx">
+      <DependentUpon>201904151806582_RemoveUnusedPropertyInGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904160013475_RemoveGroupPropertyFromStudent.resx">
+      <DependentUpon>201904160013475_RemoveGroupPropertyFromStudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904160052034_AddGroupReferenceToStudent.resx">
+      <DependentUpon>201904160052034_AddGroupReferenceToStudent.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
