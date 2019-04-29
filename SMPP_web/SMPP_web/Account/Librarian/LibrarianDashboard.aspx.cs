@@ -16,9 +16,18 @@ namespace SMPP_web.Account.Librarian
 
         protected void UploadBtn_Click(object sender, EventArgs e)
         {
+            string folderPath = Server.MapPath("~/Uploads/");
+            if (!Directory.Exists(folderPath))
+            {
+                //If Directory (Folder) does not exists. Create it.
+                Directory.CreateDirectory(folderPath);
+            }
+
+
+
             if (ProjectFileUpload.HasFile)
             {
-                ProjectFileUpload.PostedFile.SaveAs(Request.PhysicalApplicationPath + "Uploads\\" + TitleTxtbx.Text + Path.GetExtension(ProjectFileUpload.PostedFile.FileName));
+                ProjectFileUpload.PostedFile.SaveAs(folderPath + TitleTxtbx.Text + Path.GetExtension(ProjectFileUpload.PostedFile.FileName));
                 Document uploadingDocument = new Document
                 {
                     Date = DateTime.Today,
