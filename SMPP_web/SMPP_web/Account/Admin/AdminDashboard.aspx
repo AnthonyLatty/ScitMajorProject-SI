@@ -70,7 +70,7 @@
                     <div class="row">
                         <div class="col">
                             <div class="form-group">
-                                <asp:Label runat="server" AssociatedControlID="EmailLecTxtbx" CssClass="col-md-2 control-label">Email </asp:Label>
+                                <asp:Label runat="server" AssociatedControlID="EmailLecTxtbx" CssClass="col-md-2 control-label">Email</asp:Label>
                                 <div class="col-md-7">
                                     <asp:TextBox runat="server" ID="EmailLecTxtbx" CssClass="form-control" />
                                     <asp:RequiredFieldValidator ValidationGroup="Lect" ID="RequiredFieldValidator2" runat="server" ControlToValidate="EmailLecTxtbx"

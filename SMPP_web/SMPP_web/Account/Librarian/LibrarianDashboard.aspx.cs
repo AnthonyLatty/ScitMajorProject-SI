@@ -31,6 +31,7 @@ namespace SMPP_web.Account.Librarian
                 {
                     dbContext.Documents.Add(uploadingDocument);
                     dbContext.SaveChanges();
+                    ClearDocumentResults();
                 }
                 catch (DbEntityValidationException x)
                 {
@@ -45,6 +46,11 @@ namespace SMPP_web.Account.Librarian
                     throw;
                 }
             }
+        }
+
+        private void ClearDocumentResults()
+        {
+            TitleTxtbx.Text = string.Empty;
         }
     }
 }

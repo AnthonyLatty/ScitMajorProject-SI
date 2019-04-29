@@ -198,7 +198,6 @@ namespace SMPP_web.Account.Admin
                         }
                         throw;
                     }
-
                 }
                 else
                 {
@@ -214,5 +213,4 @@ namespace SMPP_web.Account.Admin
             LastNameCoorTxtbx.Text = string.Empty;
         }
     }
-
 }
