@@ -354,6 +354,7 @@
     <Compile Include="Migrations\201904291917590_ChangeLecturerFacultyLength.cs" />
     <Compile Include="Migrations\201904291917590_ChangeLecturerFacultyLength.Designer.cs">
       <DependentUpon>201904291917590_ChangeLecturerFacultyLength.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\201904151806582_RemoveUnusedPropertyInGroup.cs" />
     <Compile Include="Migrations\201904151806582_RemoveUnusedPropertyInGroup.Designer.cs">
       <DependentUpon>201904151806582_RemoveUnusedPropertyInGroup.cs</DependentUpon>
@@ -489,6 +490,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201904291917590_ChangeLecturerFacultyLength.resx">
       <DependentUpon>201904291917590_ChangeLecturerFacultyLength.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201904151806582_RemoveUnusedPropertyInGroup.resx">
       <DependentUpon>201904151806582_RemoveUnusedPropertyInGroup.cs</DependentUpon>
     </EmbeddedResource>
