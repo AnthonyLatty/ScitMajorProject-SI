@@ -14,7 +14,7 @@ namespace SMPP_web.Models
         public string LastName { get; set; }
 
         // One to many link with Syllabus
-        public int SyllabusId { get; set; }
+        public int? SyllabusId { get; set; }
         public Syllabus Syllabus { get; set; }
     }
 }

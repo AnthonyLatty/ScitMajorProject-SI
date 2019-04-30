@@ -168,8 +168,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Account\Admin\AdminDashboard.aspx" />
     <Content Include="Account\Coordinator\ProjectGroups.aspx" />
     <Content Include="Account\Forgot.aspx" />
+    <Content Include="Account\Librarian\LibrarianDashboard.aspx" />
     <Content Include="Account\Lockout.aspx" />
     <Content Include="Account\ManagePassword.aspx" />
     <Content Include="Account\Student\Projects.aspx" />
@@ -251,6 +253,13 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Account\Admin\AdminDashboard.aspx.cs">
+      <DependentUpon>AdminDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Admin\AdminDashboard.aspx.designer.cs">
+      <DependentUpon>AdminDashboard.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Account\Coordinator\ProjectGroups.aspx.cs">
       <DependentUpon>ProjectGroups.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -264,6 +273,13 @@
     </Compile>
     <Compile Include="Account\Forgot.aspx.designer.cs">
       <DependentUpon>Forgot.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Librarian\LibrarianDashboard.aspx.cs">
+      <DependentUpon>LibrarianDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Librarian\LibrarianDashboard.aspx.designer.cs">
+      <DependentUpon>LibrarianDashboard.aspx</DependentUpon>
     </Compile>
     <Compile Include="Account\Lockout.aspx.cs">
       <DependentUpon>Lockout.aspx</DependentUpon>
@@ -331,6 +347,13 @@
     <Compile Include="Migrations\201904151623084_AddNavigationPropertyToMarkScheme.Designer.cs">
       <DependentUpon>201904151623084_AddNavigationPropertyToMarkScheme.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201904291846011_AddNewChangesToDatabase.cs" />
+    <Compile Include="Migrations\201904291846011_AddNewChangesToDatabase.Designer.cs">
+      <DependentUpon>201904291846011_AddNewChangesToDatabase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904291917590_ChangeLecturerFacultyLength.cs" />
+    <Compile Include="Migrations\201904291917590_ChangeLecturerFacultyLength.Designer.cs">
+      <DependentUpon>201904291917590_ChangeLecturerFacultyLength.cs</DependentUpon>
     <Compile Include="Migrations\201904151806582_RemoveUnusedPropertyInGroup.cs" />
     <Compile Include="Migrations\201904151806582_RemoveUnusedPropertyInGroup.Designer.cs">
       <DependentUpon>201904151806582_RemoveUnusedPropertyInGroup.cs</DependentUpon>
@@ -409,10 +432,11 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Account\Admin\" />
     <Folder Include="Account\Lecturer\" />
+    <Folder Include="Account\Student\" />
     <Folder Include="Account\Librarian\" />
     <Folder Include="App_Data\" />
+    <Folder Include="Uploads\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -460,6 +484,11 @@
     <EmbeddedResource Include="Migrations\201904151623084_AddNavigationPropertyToMarkScheme.resx">
       <DependentUpon>201904151623084_AddNavigationPropertyToMarkScheme.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904291846011_AddNewChangesToDatabase.resx">
+      <DependentUpon>201904291846011_AddNewChangesToDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904291917590_ChangeLecturerFacultyLength.resx">
+      <DependentUpon>201904291917590_ChangeLecturerFacultyLength.cs</DependentUpon>
     <EmbeddedResource Include="Migrations\201904151806582_RemoveUnusedPropertyInGroup.resx">
       <DependentUpon>201904151806582_RemoveUnusedPropertyInGroup.cs</DependentUpon>
     </EmbeddedResource>

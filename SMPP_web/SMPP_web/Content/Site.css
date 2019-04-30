@@ -36,3 +36,7 @@ input[type="select"] {
         padding: 0;
     }
 }
+/* Prevents tabs from disappearing behind navbar */
+#adminContent{
+    margin-top:5%;
+}

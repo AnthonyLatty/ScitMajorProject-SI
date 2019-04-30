@@ -13,7 +13,7 @@ namespace SMPP_web.Models
         [StringLength(50), Required]
         public string LastName { get; set; }
 
-        [StringLength(30), Required]
+        [StringLength(100), Required]
         public string Faculty { get; set; }
 
         [StringLength(4), Required]
@@ -23,11 +23,11 @@ namespace SMPP_web.Models
         public string Extension { get; set; }
 
         // One to many link with Group
-        public int GroupId { get; set; }
+        public int? GroupId { get; set; }
         public Group Group { get; set; }
 
         // One to many link with Memo
-        public int MemoId { get; set; }
+        public int? MemoId { get; set; }
         public Memo Memo { get; set; }
     }
 }

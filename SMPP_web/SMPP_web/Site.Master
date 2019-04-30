@@ -86,6 +86,7 @@
                                 <div class="navbar-collapse collapse">
                                     <ul class="nav navbar-nav">
                                         <li><a runat="server" href="~/">Home</a></li>
+                                        <li><a runat="server" href="/Account/Admin/AdminDashboard.aspx">Dashboard</a></li>
                                     </ul>
                                     <ul class="nav navbar-nav navbar-right">
                                         <li><a runat="server" href="~/Account/Manage" title="Manage your account"><%: Context.User.Identity.GetUserName()  %></a></li>
@@ -205,6 +206,7 @@
                                 <div class="navbar-collapse collapse">
                                     <ul class="nav navbar-nav">
                                         <li><a runat="server" href="~/">Home</a></li>
+                                        <li><a runat="server" href="~/">Dashboard</a></li>
                                     </ul>
                                     <ul class="nav navbar-nav navbar-right">
                                         <li><a runat="server" href="~/Account/Manage" title="Manage your account">Welcome, <%: Context.User.Identity.GetUserName()  %> !</a></li>
@@ -220,7 +222,7 @@
 
 
                 <%-- Librarian Role --%>
-                <asp:RoleGroup Roles="Lecturer">
+                <asp:RoleGroup Roles="Librarian">
                     <ContentTemplate>
                         <div class="navbar navbar-default navbar-fixed-top">
                             <div class="container">
@@ -238,6 +240,7 @@
                                 <div class="navbar-collapse collapse">
                                     <ul class="nav navbar-nav">
                                         <li><a runat="server" href="~/">Home</a></li>
+                                        <li><a runat="server" href="~/Account/Librarian/LibrarianDashboard.aspx">Upload</a></li>
                                     </ul>
                                     <ul class="nav navbar-nav navbar-right">
                                         <li><a runat="server" href="~/Account/Manage" title="Manage your account">Welcome, <%: Context.User.Identity.GetUserName()  %> !</a></li>
