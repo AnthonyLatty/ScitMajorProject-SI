@@ -45,17 +45,44 @@ namespace SMPP_web.Account
                     Address = txtAddress.Text,
                     Faculty = ddlFaculty.SelectedItem.Text
                 };
+                ScitMajorProjectDbContext scitMajor = new ScitMajorProjectDbContext();
 
-                Group studentGroup = new Group
+                Group studentGroup = new Group();
+                int grpCount = (from grp in scitMajor.Groups
+                                where grp.Name == txtGroupName.Text
+                                select grp).Count();
+                
+                switch (grpCount)
                 {
-                    Name = txtGroupName.Text
-                };
+                    case 0:
+                        studentGroup.Name = txtGroupName.Text;
+                        break;
+                    case 1:
+                        registeringStudent.GroupId = (from grp in scitMajor.Groups
+                                     where grp.Name == txtGroupName.Text
+                                     select grp.GroupId).First();
+                        break;
+                    default:
+                        break;
+                }
+
 
                 ScitMajorProjectDbContext dbContext = new ScitMajorProjectDbContext();
                 try
                 {
-                    dbContext.Students.Add(registeringStudent);
-                    dbContext.Groups.Add(studentGroup);
+                    switch (grpCount)
+                    {
+                        case 0:
+                            dbContext.Students.Add(registeringStudent);
+                            dbContext.Groups.Add(studentGroup);
+                            break;
+                        case 1:
+                            dbContext.Students.Add(registeringStudent);
+                            break;
+                        default:
+                            break;
+                    }
+                    
                     dbContext.SaveChanges();
                 }
                 catch (DbEntityValidationException x)
