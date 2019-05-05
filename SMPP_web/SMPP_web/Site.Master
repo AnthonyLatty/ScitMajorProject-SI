@@ -207,6 +207,7 @@
                                     <ul class="nav navbar-nav">
                                         <li><a runat="server" href="~/">Home</a></li>
                                         <li><a runat="server" href="~/Account/Lecturer/ManageGroups.aspx">Groups</a></li>
+                                        <li><a runat="server" href="~/Account/Lecturer/Memo.aspx">Memo</a></li>
 
                                     </ul>
                                     <ul class="nav navbar-nav navbar-right">

@@ -20,5 +20,8 @@ namespace SMPP_web.Models
         [ForeignKey("Lecturer")]
         public string LecId { get; set; }
         public Lecturer Lecturer { get; set; }
+
+        public int GroupId { get; set; }
+        public Group Group { get; set; }
     }
 }
