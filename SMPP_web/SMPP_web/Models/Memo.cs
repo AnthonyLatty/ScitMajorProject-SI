@@ -17,7 +17,8 @@ namespace SMPP_web.Models
         [Required]
         public string Description { get; set; }
 
-        // Navigation property
-        public ICollection<Lecturer> Lecturers { get; set; }
+        [ForeignKey("Lecturer")]
+        public string LecId { get; set; }
+        public Lecturer Lecturer { get; set; }
     }
 }

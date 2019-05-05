@@ -103,7 +103,7 @@ namespace SMPP_web.Account.Admin
 
                 if (result.Succeeded)
                 {
-                    Lecturer registeringLecturer = new Lecturer
+                    SMPP_web.Models.Lecturer registeringLecturer = new SMPP_web.Models.Lecturer
                     {
                         Id = EmailLecTxtbx.Text,
                         FirstName = FirstNameLectTxtbx.Text,

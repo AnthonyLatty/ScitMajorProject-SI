@@ -22,12 +22,10 @@ namespace SMPP_web.Models
         [StringLength(4), Required]
         public string Extension { get; set; }
 
-        // One to many link with Group
-        public int? GroupId { get; set; }
-        public Group Group { get; set; }
+       
+        
 
         // One to many link with Memo
-        public int? MemoId { get; set; }
-        public Memo Memo { get; set; }
+        
     }
 }
