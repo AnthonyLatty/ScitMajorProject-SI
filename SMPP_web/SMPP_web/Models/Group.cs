@@ -13,6 +13,8 @@ namespace SMPP_web.Models
         [StringLength(20), Required]
         public string Name { get; set; }
 
+        public decimal? Grade { get; set; }
+
         // Navigation properties
         public string Id { get; set; }
         public Lecturer Lecturer { get; set; }
