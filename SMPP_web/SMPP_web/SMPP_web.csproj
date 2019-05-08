@@ -169,11 +169,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Account\Admin\AdminDashboard.aspx" />
+    <Content Include="Account\Coordinator\Grades.aspx" />
     <Content Include="Account\Coordinator\ProjectGroups.aspx" />
+    <Content Include="Account\Coordinator\Reports.aspx" />
     <Content Include="Account\Forgot.aspx" />
+    <Content Include="Account\Lecturer\ManageGroups.aspx" />
+    <Content Include="Account\Lecturer\Memo.aspx" />
     <Content Include="Account\Librarian\LibrarianDashboard.aspx" />
     <Content Include="Account\Lockout.aspx" />
     <Content Include="Account\ManagePassword.aspx" />
+    <Content Include="Account\Projects.aspx" />
     <Content Include="Account\Student\Projects.aspx" />
     <Content Include="Account\Student\Syllabus.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -260,6 +265,13 @@
     <Compile Include="Account\Admin\AdminDashboard.aspx.designer.cs">
       <DependentUpon>AdminDashboard.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Account\Coordinator\Grades.aspx.cs">
+      <DependentUpon>Grades.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Coordinator\Grades.aspx.designer.cs">
+      <DependentUpon>Grades.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Account\Coordinator\ProjectGroups.aspx.cs">
       <DependentUpon>ProjectGroups.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -267,12 +279,33 @@
     <Compile Include="Account\Coordinator\ProjectGroups.aspx.designer.cs">
       <DependentUpon>ProjectGroups.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Account\Coordinator\Reports.aspx.cs">
+      <DependentUpon>Reports.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Coordinator\Reports.aspx.designer.cs">
+      <DependentUpon>Reports.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Account\Forgot.aspx.cs">
       <DependentUpon>Forgot.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Account\Forgot.aspx.designer.cs">
       <DependentUpon>Forgot.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Lecturer\ManageGroups.aspx.cs">
+      <DependentUpon>ManageGroups.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Lecturer\ManageGroups.aspx.designer.cs">
+      <DependentUpon>ManageGroups.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Lecturer\Memo.aspx.cs">
+      <DependentUpon>Memo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Lecturer\Memo.aspx.designer.cs">
+      <DependentUpon>Memo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Account\Librarian\LibrarianDashboard.aspx.cs">
       <DependentUpon>LibrarianDashboard.aspx</DependentUpon>
@@ -294,6 +327,13 @@
     </Compile>
     <Compile Include="Account\ManagePassword.aspx.designer.cs">
       <DependentUpon>ManagePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Projects.aspx.cs">
+      <DependentUpon>Projects.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Projects.aspx.designer.cs">
+      <DependentUpon>Projects.aspx</DependentUpon>
     </Compile>
     <Compile Include="Account\Student\Projects.aspx.cs">
       <DependentUpon>Projects.aspx</DependentUpon>
@@ -347,6 +387,18 @@
     <Compile Include="Migrations\201904151623084_AddNavigationPropertyToMarkScheme.Designer.cs">
       <DependentUpon>201904151623084_AddNavigationPropertyToMarkScheme.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201904160738538_NullForeignKey.cs" />
+    <Compile Include="Migrations\201904160738538_NullForeignKey.Designer.cs">
+      <DependentUpon>201904160738538_NullForeignKey.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904160746589_NullForeignKey1.cs" />
+    <Compile Include="Migrations\201904160746589_NullForeignKey1.Designer.cs">
+      <DependentUpon>201904160746589_NullForeignKey1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904160748230_NullForeignKey2.cs" />
+    <Compile Include="Migrations\201904160748230_NullForeignKey2.Designer.cs">
+      <DependentUpon>201904160748230_NullForeignKey2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\201904291846011_AddNewChangesToDatabase.cs" />
     <Compile Include="Migrations\201904291846011_AddNewChangesToDatabase.Designer.cs">
       <DependentUpon>201904291846011_AddNewChangesToDatabase.cs</DependentUpon>
@@ -366,6 +418,10 @@
     <Compile Include="Migrations\201904160052034_AddGroupReferenceToStudent.cs" />
     <Compile Include="Migrations\201904160052034_AddGroupReferenceToStudent.Designer.cs">
       <DependentUpon>201904160052034_AddGroupReferenceToStudent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905080221039_UpdateModel.cs" />
+    <Compile Include="Migrations\201905080221039_UpdateModel.Designer.cs">
+      <DependentUpon>201905080221039_UpdateModel.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Coordinator.cs" />
@@ -433,11 +489,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Account\Lecturer\" />
-    <Folder Include="Account\Student\" />
-    <Folder Include="Account\Librarian\" />
     <Folder Include="App_Data\" />
-    <Folder Include="Uploads\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -452,6 +504,7 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Uploads\AI in education.doc" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -485,6 +538,15 @@
     <EmbeddedResource Include="Migrations\201904151623084_AddNavigationPropertyToMarkScheme.resx">
       <DependentUpon>201904151623084_AddNavigationPropertyToMarkScheme.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904160738538_NullForeignKey.resx">
+      <DependentUpon>201904160738538_NullForeignKey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904160746589_NullForeignKey1.resx">
+      <DependentUpon>201904160746589_NullForeignKey1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904160748230_NullForeignKey2.resx">
+      <DependentUpon>201904160748230_NullForeignKey2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201904291846011_AddNewChangesToDatabase.resx">
       <DependentUpon>201904291846011_AddNewChangesToDatabase.cs</DependentUpon>
     </EmbeddedResource>
@@ -499,6 +561,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201904160052034_AddGroupReferenceToStudent.resx">
       <DependentUpon>201904160052034_AddGroupReferenceToStudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905080221039_UpdateModel.resx">
+      <DependentUpon>201905080221039_UpdateModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
