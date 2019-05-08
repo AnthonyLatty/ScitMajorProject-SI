@@ -172,6 +172,8 @@
     <Content Include="Account\Coordinator\Grades.aspx" />
     <Content Include="Account\Coordinator\ProjectGroups.aspx" />
     <Content Include="Account\Coordinator\Reports.aspx" />
+    <Content Include="Account\Coordinator\UploadMarkScheme.aspx" />
+    <Content Include="Account\Coordinator\UploadSyllabus.aspx" />
     <Content Include="Account\Forgot.aspx" />
     <Content Include="Account\Lecturer\ManageGroups.aspx" />
     <Content Include="Account\Lecturer\Memo.aspx" />
@@ -285,6 +287,20 @@
     </Compile>
     <Compile Include="Account\Coordinator\Reports.aspx.designer.cs">
       <DependentUpon>Reports.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Coordinator\UploadMarkScheme.aspx.cs">
+      <DependentUpon>UploadMarkScheme.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Coordinator\UploadMarkScheme.aspx.designer.cs">
+      <DependentUpon>UploadMarkScheme.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Coordinator\UploadSyllabus.aspx.cs">
+      <DependentUpon>UploadSyllabus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Coordinator\UploadSyllabus.aspx.designer.cs">
+      <DependentUpon>UploadSyllabus.aspx</DependentUpon>
     </Compile>
     <Compile Include="Account\Forgot.aspx.cs">
       <DependentUpon>Forgot.aspx</DependentUpon>

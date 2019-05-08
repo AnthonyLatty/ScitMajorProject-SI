@@ -1,22 +1,23 @@
-﻿using System;
+﻿using SMPP_web.Models;
+using System;
 using System.Data.Entity.Validation;
 using System.Diagnostics;
 using System.IO;
 using System.Web.UI;
-using SMPP_web.Models;
 
-namespace SMPP_web.Account.Librarian
+namespace SMPP_web.Account.Coordinator
 {
-    public partial class LibrarianDashboard : Page
+    public partial class UploadSyllabus : Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            DateTxtbx.Text = DateTime.Today.ToString().Substring(0, 10);
+            // Gets current date and populates Date textbox
+            txtDate.Text = DateTime.Now.ToShortDateString();
         }
 
-        protected void UploadBtn_Click(object sender, EventArgs e)
+        protected void BtnUploadSyllabus_Click(object sender, EventArgs e)
         {
-            string folderPath = Server.MapPath("~/Uploads/Librarian/");
+            string folderPath = Server.MapPath("~/Uploads/Syllabus/");
             if (!Directory.Exists(folderPath))
             {
                 //If Directory (Folder) does not exists. Create it.
@@ -24,23 +25,23 @@ namespace SMPP_web.Account.Librarian
             }
 
 
-
-            if (ProjectFileUpload.HasFile)
+            if (SyllabusFileUpload.HasFile)
             {
-                ProjectFileUpload.PostedFile.SaveAs(folderPath + TitleTxtbx.Text + Path.GetExtension(ProjectFileUpload.PostedFile.FileName));
-                Document uploadingDocument = new Document
+                SyllabusFileUpload.PostedFile.SaveAs(folderPath + txtTitle.Text + Path.GetExtension(SyllabusFileUpload.PostedFile.FileName));
+                Syllabus uploadingSyllabus = new Syllabus
                 {
-                    Date = DateTime.Today,
-                    Title = TitleTxtbx.Text,
-                    FilePath = Request.PhysicalApplicationPath + "Uploads\\"
+                    Title = txtTitle.Text,
+                    FilePath = Request.PhysicalApplicationPath + "Uploads\\",
+                    MarkSchemeId = Convert.ToInt16(ddlMarkScheme.SelectedItem.Text)
                 };
 
                 ScitMajorProjectDbContext dbContext = new ScitMajorProjectDbContext();
                 try
                 {
-                    dbContext.Documents.Add(uploadingDocument);
+                    dbContext.Syllabi.Add(uploadingSyllabus);
                     dbContext.SaveChanges();
-                    ClearDocumentResults();
+                    txtSuccess.Text = "Yay!! Syllabus uploaded successfully.";
+                    CleartResults();
                 }
                 catch (DbEntityValidationException x)
                 {
@@ -57,9 +58,9 @@ namespace SMPP_web.Account.Librarian
             }
         }
 
-        private void ClearDocumentResults()
+        private void CleartResults()
         {
-            TitleTxtbx.Text = string.Empty;
+            txtTitle.Text = string.Empty;
         }
     }
 }

@@ -1,22 +1,22 @@
-﻿using System;
+﻿using SMPP_web.Models;
+using System;
 using System.Data.Entity.Validation;
 using System.Diagnostics;
 using System.IO;
 using System.Web.UI;
-using SMPP_web.Models;
 
-namespace SMPP_web.Account.Librarian
+namespace SMPP_web.Account.Coordinator
 {
-    public partial class LibrarianDashboard : Page
+    public partial class UploadMarkScheme : Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            DateTxtbx.Text = DateTime.Today.ToString().Substring(0, 10);
+
         }
 
-        protected void UploadBtn_Click(object sender, EventArgs e)
+        protected void BtnUploadMarkScheme_Click(object sender, EventArgs e)
         {
-            string folderPath = Server.MapPath("~/Uploads/Librarian/");
+            string folderPath = Server.MapPath("~/Uploads/MarkScheme/");
             if (!Directory.Exists(folderPath))
             {
                 //If Directory (Folder) does not exists. Create it.
@@ -24,23 +24,20 @@ namespace SMPP_web.Account.Librarian
             }
 
 
-
-            if (ProjectFileUpload.HasFile)
+            if (MarkSchemeFileUpload.HasFile)
             {
-                ProjectFileUpload.PostedFile.SaveAs(folderPath + TitleTxtbx.Text + Path.GetExtension(ProjectFileUpload.PostedFile.FileName));
-                Document uploadingDocument = new Document
+                MarkSchemeFileUpload.PostedFile.SaveAs(folderPath + Path.GetExtension(MarkSchemeFileUpload.PostedFile.FileName));
+                MarkScheme uploadingMarkscheme = new MarkScheme
                 {
-                    Date = DateTime.Today,
-                    Title = TitleTxtbx.Text,
                     FilePath = Request.PhysicalApplicationPath + "Uploads\\"
                 };
 
                 ScitMajorProjectDbContext dbContext = new ScitMajorProjectDbContext();
                 try
                 {
-                    dbContext.Documents.Add(uploadingDocument);
+                    dbContext.MarkSchemes.Add(uploadingMarkscheme);
                     dbContext.SaveChanges();
-                    ClearDocumentResults();
+                    txtSuccess.Text = "Yay!! MarkScheme uploaded successfully.";
                 }
                 catch (DbEntityValidationException x)
                 {
@@ -55,11 +52,6 @@ namespace SMPP_web.Account.Librarian
                     throw;
                 }
             }
-        }
-
-        private void ClearDocumentResults()
-        {
-            TitleTxtbx.Text = string.Empty;
         }
     }
 }
