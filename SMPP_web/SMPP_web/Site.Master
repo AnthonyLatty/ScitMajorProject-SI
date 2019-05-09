@@ -87,6 +87,7 @@
                                     <ul class="nav navbar-nav">
                                         <li><a runat="server" href="~/">Home</a></li>
                                         <li><a runat="server" href="/Account/Admin/AdminDashboard.aspx">Dashboard</a></li>
+                                        <li><a runat="server" href="~/Account/Projects.aspx">Projects</a></li>
                                     </ul>
                                     <ul class="nav navbar-nav navbar-right">
                                         <li><a runat="server" href="~/Account/Manage" title="Manage your account"><%: Context.User.Identity.GetUserName()  %></a></li>
@@ -125,6 +126,7 @@
                                         </li>
                                         <li>
                                             <a runat="server" href="Account/Coordinator/ProjectGroups">Groups</a>
+                                            <li><a runat="server" href="~/Account/Projects.aspx">Projects</a></li>
                                         </li>
                                         <li class="dropdown">
                                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Upload <span class="caret"></span></a>
@@ -171,6 +173,7 @@
                                     <ul class="nav navbar-nav">
                                         <li>
                                             <a runat="server" href="~/">Home</a>
+                                            <li><a runat="server" href="~/Account/Projects.aspx">Projects</a></li>
                                         </li>
                                         <li class="dropdown">
                                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Grade Utility <span class="caret"></span></a>
@@ -183,9 +186,6 @@
                                                 </li>
                                                 <%--<li class="divider"></li>--%>
                                             </ul>
-                                        </li>
-                                        <li>
-                                            <a runat="server" href="~/Account/Student/Projects.aspx">View all projects</a>
                                         </li>
                                     </ul>
                                     <ul class="nav navbar-nav navbar-right">
@@ -221,6 +221,7 @@
                                 <div class="navbar-collapse collapse">
                                     <ul class="nav navbar-nav">
                                         <li><a runat="server" href="~/">Home</a></li>
+                                        <li><a runat="server" href="~/Account/Projects.aspx">Projects</a></li>
                                         <li><a runat="server" href="~/Account/Lecturer/ManageGroups.aspx">Groups</a></li>
                                         <li><a runat="server" href="~/Account/Lecturer/Memo.aspx">Memo</a></li>
 
@@ -257,6 +258,7 @@
                                 <div class="navbar-collapse collapse">
                                     <ul class="nav navbar-nav">
                                         <li><a runat="server" href="~/">Home</a></li>
+                                        <li><a runat="server" href="~/Account/Projects.aspx">Projects</a></li>
                                         <li><a runat="server" href="~/Account/Librarian/LibrarianDashboard.aspx">Upload</a></li>
                                     </ul>
                                     <ul class="nav navbar-nav navbar-right">
