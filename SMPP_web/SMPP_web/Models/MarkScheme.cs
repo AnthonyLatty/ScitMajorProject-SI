@@ -11,6 +11,9 @@ namespace SMPP_web.Models
         public int MarkSchemeId { get; set; }
 
         [Required]
+        public string AcademicYear { get; set; }
+
+        [Required]
         public string FilePath { get; set; }
 
         // Navigation property

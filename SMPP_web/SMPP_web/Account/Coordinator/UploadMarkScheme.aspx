@@ -20,6 +20,15 @@
                         <asp:FileUpload ID="MarkSchemeFileUpload" runat="server" />
                     </div>
                 </div>
+                <div class="form-group">
+                    <div class="col-md-2">
+                        <asp:Label ID="Label1" runat="server" Text="Title"></asp:Label>
+                    </div>
+                    <div class="col-md-6">
+                        <asp:TextBox ID="TitleTxtbx" runat="server"></asp:TextBox>
+                    </div>                
+
+                </div>
 
                 <asp:Button ID="BtnUploadMarkScheme" runat="server" Text="Upload MarkScheme" CssClass="btn btn-success" OnClick="BtnUploadMarkScheme_Click" />
             </div>

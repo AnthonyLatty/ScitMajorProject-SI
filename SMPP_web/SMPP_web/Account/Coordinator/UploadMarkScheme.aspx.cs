@@ -26,9 +26,10 @@ namespace SMPP_web.Account.Coordinator
 
             if (MarkSchemeFileUpload.HasFile)
             {
-                MarkSchemeFileUpload.PostedFile.SaveAs(folderPath + Path.GetExtension(MarkSchemeFileUpload.PostedFile.FileName));
+                MarkSchemeFileUpload.PostedFile.SaveAs(folderPath + TitleTxtbx.Text + Path.GetExtension(MarkSchemeFileUpload.PostedFile.FileName));
                 MarkScheme uploadingMarkscheme = new MarkScheme
                 {
+                    AcademicYear = TitleTxtbx.Text,
                     FilePath = Request.PhysicalApplicationPath + "Uploads\\"
                 };
 
